@@ -1,7 +1,6 @@
 import React from 'react';
-import Banner from './Banner';
 
-export default class App extends React.Component{
+export default class Banner extends React.Component{
     constructor(){
         super();
         this.state = {
@@ -11,9 +10,9 @@ export default class App extends React.Component{
 
     render(){
         return(
-            <div>
-                <Banner />
-            </div>
+            <div >
+                <h1>Hello</h1>
+    	    </div>
         )
     }
 }

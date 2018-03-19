@@ -1,0 +1,26 @@
+//crear y/o utilizar la bd en mongo, es necesario tener mongo instalado//
+utilizar comando sin las comillas dobles: "mongo"
+utilizar comando sin las comillas dobles: "use carroinfo"
+
+
+// carros //
+Para llenar la coleccion de carros ejecutar las siguientes lineas en la consola de mongo:
+db.carros.insert({"id":"1","marca":"Audi","anio":"2018","pais":"Alemania","modelo":"R8","linea":"V10 plus","traccion":"AWD","puertas":"2","cilindros":"10","motor":"5.2", "valvulas por cilindro":"4", "combustible":"gasolina premium", "mpg":"15", "transmicion":"automatica", "hp":"610", "aceleracion":"2.7", "pesoKG":"3605", "torquelbft":"413", "velocidadmaxkm":"330", "precio":"800000000","imagen":"https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/788x525/quality/85/https://s.aolcdn.com/commerce/autodata/images/CAC70AUC171A021001.jpg"})
+db.carros.insert({"id":"2","marca":"Volkswagen","anio":"2018","pais":"Alemania","modelo":"gol","linea":"trendline","traccion":"delantera","puertas":"4","cilindros":"4","motor":"1.6", "valvulas por cilindro":"2", "combustible":"gasolina", "mpg":"30", "transmicion":"mecanica", "hp":"100", "aceleracion":"10.7", "pesoKG":"910", "torquelbft":"120", "velocidadmaxkm":"220", "precio":"35000000","imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAoXoHwfaysjjyvco0lJaALJBeTlzx2PDkW9LS6UnWQhU09oGuDg"})
+db.carros.insert({"id":"3","marca":"Mazda","anio":"2018","pais":"Japón","modelo":"3","linea":"Grand Turing","traccion":"delantera","puertas":"4","cilindros":"4","motor":"2.0", "valvulas por cilindro":"4", "combustible":"gasolina", "mpg":"30", "transmicion":"automatica", "hp":"153", "aceleracion":"8.9", "pesoKG":"2050", "torquelbft":"180", "velocidadmaxkm":"260", "precio":"62000000","imagen":"https://c4d709dd302a2586107d-f8305d22c3db1fdd6f8607b49e47a10c.ssl.cf1.rackcdn.com/thumbnails/stock-images/eed5b56873aa8cbb79c2824b76fee418.png"})
+
+
+// reviews //
+Para llenar la coleccion de reviews ejecutar las siguientes lineas en la consola de mongo:
+db.reviews.insert({"id":"1","idcarro":"1","puntuacion":"4"})
+db.reviews.insert({"id":"2","idcarro":"1","puntuacion":"5"})
+db.reviews.insert({"id":"3","idcarro":"1","puntuacion":"5"})
+db.reviews.insert({"id":"4","idcarro":"1","puntuacion":"4"})
+db.reviews.insert({"id":"5","idcarro":"1","puntuacion":"5"})
+db.reviews.insert({"id":"6","idcarro":"2","puntuacion":"5"})
+db.reviews.insert({"id":"7","idcarro":"2","puntuacion":"5"})
+db.reviews.insert({"id":"8","idcarro":"2","puntuacion":"5"})
+db.reviews.insert({"id":"9","idcarro":"3","puntuacion":"4"})
+db.reviews.insert({"id":"10","idcarro":"3","puntuacion":"5"})
+db.reviews.insert({"id":"11","idcarro":"3","puntuacion":"5"})
+
