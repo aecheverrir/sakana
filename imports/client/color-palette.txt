@@ -1,0 +1,14 @@
+Color principal (hex): ff5c5c
+
+Secundario (hex): e6e2d2 ó 
+
+Blanco (hex): ffffff
+
+Gris oscuro:
+
+Gris claro:
+
+Colores Logo 
+    - claro: e87254
+    - oscuro: da1f32
+
