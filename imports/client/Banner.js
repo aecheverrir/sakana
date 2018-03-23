@@ -13,7 +13,7 @@ export default class Banner extends React.Component{
             <header >
                 <div className="wrapper">
                     <div className="logo">
-                        <a href=""><img src="" alt="Sakana Logo" title=""/></a>
+                        <a href=""><img src="../../public/logo.jpg" alt="Sakana Logo" title=""/></a>
                     </div>
                     <nav>
                         <ul>
