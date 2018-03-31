@@ -13,15 +13,14 @@ export default class Banner extends React.Component{
             <header >
                 <div className="wrapper">
                     <div className="logo">
-                        <a href=""><img src="../../public/logo.jpg" alt="Sakana Logo" title=""/></a>
+                        <a href=""><img className="logoimg"  src="https://i.imgur.com/wk4YvmP.jpg" alt="Sakana Logo" title=""/></a>
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="">Our Story</a></li>
+                            <li><a href="">Home</a></li>
                             <li><a href="">Menu</a></li>
-                            <li><a href="">Reservations</a></li>
-                            <li><a href="">News</a></li>
-                            <li><a href="">Reviews</a></li>
+                            <li><a href="">Reservas</a></li>
+                            <li><a href="">Domicilios</a></li>
                         </ul>
                     </nav>
 		        </div>

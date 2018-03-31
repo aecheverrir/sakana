@@ -15,7 +15,6 @@ export default class App extends React.Component{
     render(){
         return(
             <div>
-                <button type="button" class="btn btn-info">Info</button>
                 <Banner />
                 <Hero />
                 <Menu />
