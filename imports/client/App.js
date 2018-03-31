@@ -1,10 +1,12 @@
-import React from 'react';
-import Banner from './Banner';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Banner from './Header';
 import Hero from './Hero';
 import Menu from './Menu';
 import Footer from './Footer' 
 
-export default class App extends React.Component{
+export default class App extends Component{
     constructor(){
         super();
         this.state = {
@@ -14,12 +16,12 @@ export default class App extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="AppContainer">
                 <Banner />
                 <Hero />
-                <Menu />
                 <Footer />
-            </div>
+                
+            </div>    
         )
     }
 }

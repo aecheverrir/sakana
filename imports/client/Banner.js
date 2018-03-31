@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
-export default class Banner extends React.Component{
+export default class Banner extends Component{
     constructor(){
         super();
         this.state = {
@@ -17,10 +18,7 @@ export default class Banner extends React.Component{
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Menu</a></li>
-                            <li><a href="">Reservas</a></li>
-                            <li><a href="">Domicilios</a></li>
+                            <li><a href="/">Home</a></li>
                         </ul>
                     </nav>
 		        </div>
