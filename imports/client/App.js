@@ -1,24 +1,22 @@
-import React from 'react';
-import Banner from './Banner';
-import Hero from './Hero';
-import Menu from './Menu';
-import Footer from './Footer' 
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-export default class App extends React.Component{
-    constructor(){
+import Banner from "./Header";
+import Show from "./Show";
+
+export default class App extends Component {
+    constructor() {
         super();
         this.state = {
             count: 0
         }
     }
 
-    render(){
-        return(
-            <div>
+    render() {
+        return (
+            <div className="AppContainer">
                 <Banner />
-                <Hero />
-                <Menu />
-                <Footer />
+                <Show />
             </div>
         )
     }
