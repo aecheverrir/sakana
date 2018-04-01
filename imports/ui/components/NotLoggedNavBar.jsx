@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 import { Image, Nav, Navbar, NavItem } from "react-bootstrap";
 
+import AccountsUIWrapper from '../components/AccountsUIWrapper';
+
 export default class NotLoggedNavBar extends Component {
 
   render() {
@@ -26,6 +28,7 @@ export default class NotLoggedNavBar extends Component {
             <LinkContainer to="/domicilios">
               <NavItem>Domicilios</NavItem>
             </LinkContainer>
+            <NavItem><AccountsUIWrapper /></NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

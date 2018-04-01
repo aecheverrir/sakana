@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 import { Grid, Row, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 import Hero from "../../client/Hero";
 import Menu from "../../client/Menu";
@@ -11,9 +12,15 @@ import Footer from "../../client/Footer";
 */
 export default class MainView extends Component {
 
+  constructor(props){
+    super(props);
+
+  }
+
   render() {
     return (
       <Grid fluid>
+        {console.log(this.props.menus)}
         <Row>
           <Col sm={12}>
             <Switch>
@@ -31,4 +38,8 @@ export default class MainView extends Component {
       </Grid>
     )
   }
+}
+
+MainView.propTypes = {
+  menus: PropTypes.array.isRequired
 }
