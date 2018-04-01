@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 import { Menus } from "../api/menus";
+
 
 import NotLoggedNavBar from "../ui/components/NotLoggedNavBar";
 import MainView from "../ui/components/MainView";
 
 class App extends Component{
-    constructor(){
-        super();
-        this.state = {
-            count: 0
-        }
+    constructor(props) {
+        super(props);
     }
     
     render(){
@@ -20,10 +19,15 @@ class App extends Component{
         return(
             <div>
                 <NotLoggedNavBar />
-                <MainView />
+                
+                <MainView menus={this.props.menus}/>
             </div>
         )
     }
+}
+
+App.propTypes = {
+    menus: PropTypes.array.isRequired
 }
 
 export default withTracker(() => {
