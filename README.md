@@ -46,7 +46,7 @@
 
 | <a href="https://github.com/aecheverrir" target="_blank">**Alejandro Echeverri**</a> | <a href="https://github.com/s-cortes" target="_blank">**Santiago Cortes**</a> |
 | :---: |:---:|
-| [![CarInfo](https://avatars3.githubusercontent.com/u/25350194?s=460&v=4)](https://github.com/aecheverrir)    | [![CarInfo](https://avatars0.githubusercontent.com/u/20799498?s=460&v=4)](https://github.com/paalvarado10) |
+| [![CarInfo](https://avatars3.githubusercontent.com/u/25350194?s=460&v=4)](https://github.com/aecheverrir)    | [![CarInfo](https://avatars0.githubusercontent.com/u/25346635?s=460&v=4)](https://github.com/s-cortes) |
 
 ---
 
