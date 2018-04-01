@@ -9,6 +9,7 @@ import MenuPage from "../pages/MenuPage";
 import DomiciliosPage from "../pages/DomiciliosPage";
 import PageNotFound from "../pages/PageNotFound";
 import RegistrationForm from "../components/Registration/RegistrationForm";
+import ChangeProfileDataForm from "../components/Registration/ChangeProfileDataForm";
 
 import Footer from "./Footer";
 /*
@@ -32,6 +33,7 @@ export default class MainView extends Component {
               <Route path="/domicilios" component={DomiciliosPage} />
               <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
               <Route path="/signup" render={(props) => <RegistrationForm {...props} isLogin={false} />} />
+              <Route path="/changePassword" render={(props) => <ChangeProfileDataForm {...props} />} />
             </Switch>
           </Col>
         </Row>

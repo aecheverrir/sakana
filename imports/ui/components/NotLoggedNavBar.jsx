@@ -50,7 +50,9 @@ export default class NavigationBar extends Component {
 
               {/*Lista con opciones del cliente*/}
               <NavDropdown title={this.props.currentUser.username} id="Dropdown-Opciones-Usuario">
-                <MenuItem>Modificar Perfil</MenuItem>
+                <LinkContainer to="/changePassword">
+                <MenuItem>Cambiar Contraseña</MenuItem>
+                </LinkContainer>
                 <MenuItem divider />
                 <MenuItem onClick={this.props.onSignOut}>Logout</MenuItem>
               </NavDropdown>

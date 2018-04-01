@@ -10,25 +10,29 @@ import NavigationBar from "./NotLoggedNavBar";
 import MainView from "./MainView";
 
 
-class App extends Component{
+class App extends Component {
     constructor(props) {
         super(props);
 
     }
 
-    onSignOut= () =>{
-        if(Meteor.user()){
-            Meteor.logout((e) =>{
-                if(e !== undefined){
+    onSignOut = () => {
+        if (Meteor.user()) {
+            Meteor.logout((e) => {
+                if (e !== undefined) {
                     console.log("ERROR: no fue posible realizar un logout: " + e);
+                }else{
+                    this.props.history.push("/");
                 }
             });
         }
     };
+
     
-    render(){
-        
-        return(
+
+    render() {
+
+        return (
             <div>
                 <NavigationBar currentUser={this.props.currentUser} onSignOut={this.onSignOut.bind(this)} />
                 <MainView menus={this.props.menus} currentUser={this.props.currentUser} />

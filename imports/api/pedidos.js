@@ -8,7 +8,7 @@ export const Pedidos = new Mongo.Collection("pedidos");
 /*
 const PedidosSchema = new SimpleSchema({
   owner: {
-    type: String
+    type: SimpleSchema.Integer
   },
   address:{
     type: String
@@ -32,7 +32,7 @@ const PedidosSchema = new SimpleSchema({
   "items.$": Object,
   "items.$.name": String,
   "items.$.description": String,
-  "items.$.price": SimpleSchema.Integer
+  "items.$.price": SimpleSchema.Integer,
 });
 
 Pedidos.attachSchema(PedidosSchema);

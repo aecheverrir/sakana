@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Meteor } from 'meteor/meteor'
-import { Accounts } from 'meteor/accounts-base'
-import { withRouter } from 'react-router-dom'
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+import { Roles } from 'meteor/alanning:roles';
+import { withRouter } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 import { Grid, Row, Col, Jumbotron, Panel, FormControl, FormGroup, ControlLabel, Button } from "react-bootstrap";
 
@@ -56,20 +57,21 @@ export default class RegistrationForm extends Component {
           email: this.state.email,
           password: this.state.password,
           username: this.state.username,
+          roles: ["user"],
           profile: {
             name: this.state.name,
             phoneNumber: this.state.phoneNumber
           }
         };
         Accounts.createUser(newUser, (e) => {
+          console.log(Meteor.user());
           if (!Meteor.user() || e) {
             console.log("[ERROR] No se realiza el signup: " + e.reason);
             this.setState({
               error: e.reason
             });
           }
-          else {
-            //TODO redireccionar a la pagina principal
+          else{
             this.props.history.push("/");
           }
         });
@@ -127,7 +129,7 @@ export default class RegistrationForm extends Component {
         <Row>
           <Col xs={12} sm={12} md={5}>
             <Jumbotron>
-              <h1>Bienvenido</h1>
+              <h2>Bienvenido a Sakana!</h2>
               {this.props.isLogin ?
                 <p>
                   A continuación, ingrese su usuario y contraseña para poder realizar pedidos.
@@ -184,7 +186,7 @@ export default class RegistrationForm extends Component {
                     <ControlLabel>Nombre</ControlLabel>
                     <FormControl
                       type="text"
-                      placeholder="Ingrese su nombre complerp"
+                      placeholder="Ingrese su nombre completo"
                       onChange={this.handleNameChange}
                     />
                   </FormGroup>
@@ -208,7 +210,7 @@ export default class RegistrationForm extends Component {
                 :
                 null
               }
-              <FormGroup controlId="">
+              <FormGroup controlId="submit-Ingreso">
                 <Button type="submit" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
               </FormGroup>
             </form>
