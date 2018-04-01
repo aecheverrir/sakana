@@ -11,12 +11,12 @@ export default class MenuItem extends React.Component{
     render(){
         return(
             <li>
-                <img src="https://i.imgur.com/CEM270s.jpg" alt="foto del plato"/> 
+                <img src={this.props.img} alt="foto del plato"/> 
                     <div className="item_info">
-                        <h3 className="item_name">California Roll.</h3>
-                        <p className="item_desc">Cheese, tomato, mushrooms, onions.</p>
+                        <h3 className="item_name"> {this.props.name} </h3> 
+                        <p className="item_desc"> {this.props.description} </p>
                     </div>
-                    <h4 className="price">$25.000</h4>
+                    <h4 className="price"> $ {this.props.price} </h4>
                     <span className="separator"></span>              
 			</li>
         )
