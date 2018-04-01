@@ -29,7 +29,7 @@
 - use `cd sakana` to enter the main folder
 - use `npm install` to install npm dependencies
 - follow [setup](#setup) guide
-- type `meteor` to run the server locally at port you defined or otherwise it's port 3000
+- use `meteor` to run the server locally at port you defined or otherwise it's port 3000
 
 ## Setup
 - Go to server
@@ -38,7 +38,7 @@
 
 ## Clone
 
-- Clone this repo to your local machine using git with: `git clone https://github.com/aecheverrir/sakana.git`
+- Clone this repo to your local machine using git typing this in your cosole: `git clone https://github.com/aecheverrir/sakana.git`
 
 ---
 
