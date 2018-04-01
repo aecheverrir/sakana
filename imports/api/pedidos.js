@@ -10,6 +10,9 @@ const PedidosSchema = new SimpleSchema({
   owner: {
     type: String
   },
+  address:{
+    type: String
+  }
   pedidoState:{
     type: String
   },
