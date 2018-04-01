@@ -28,7 +28,7 @@ export default class MainView extends Component {
           <Col sm={12}>
             <Switch>
               <Route exact path="/" render={(props) => <HomePage {...props} />} />
-              <Route path="/menus" component={MenuPage} />
+              <Route path="/menus" render={(props) => <MenuPage {...props} menus={this.props.menus}/>} />
               <Route path="/domicilios" component={DomiciliosPage} />
               <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
               <Route path="/signup" render={(props) => <RegistrationForm {...props} isLogin={false} />} />

@@ -124,7 +124,6 @@ export default class RegistrationForm extends Component {
   render() {
     return (
       <Grid>
-        {console.log("is login? " + this.props.isLogin)}
         <Row>
           <Col xs={12} sm={12} md={5}>
             <Jumbotron>

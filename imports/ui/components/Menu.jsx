@@ -1,7 +1,8 @@
-import React from 'react';
-import MenuItem from './Menu/MenuItem'
-import MenuTitle from './Menu/MenuTitle'
-import MenuCategory from './Menu/MenuCategory'
+import React from "react";
+import MenuItem from "./Menu/MenuItem";
+import MenuTitle from "./Menu/MenuTitle";
+import MenuCategory from "./Menu/MenuCategory";
+import PropTypes from "prop-types";
 
 export default class Menu extends React.Component{
     constructor(){
@@ -69,4 +70,7 @@ export default class Menu extends React.Component{
             </section>
         )
     }
+}
+Menu.propTypes = {
+    menus: PropTypes.array.isRequired
 }

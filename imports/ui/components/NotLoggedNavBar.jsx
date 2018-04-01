@@ -5,7 +5,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Image, Nav, Navbar, NavItem, Button, ButtonGroup, NavDropdown, MenuItem } from "react-bootstrap";
 
 import PropTypes from "prop-types";
-import AccountsUIWrapper from './AccountsUIWrapper';
 
 export default class NavigationBar extends Component {
 
