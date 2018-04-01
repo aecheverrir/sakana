@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 import { Image, Nav, Navbar, NavItem } from "react-bootstrap";
 
-import AccountsUIWrapper from '../components/AccountsUIWrapper';
+import AccountsUIWrapper from './AccountsUIWrapper';
 
 export default class NotLoggedNavBar extends Component {
 

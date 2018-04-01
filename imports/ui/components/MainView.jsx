@@ -4,9 +4,11 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Grid, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-import Hero from "../../client/Hero";
-import Menu from "../../client/Menu";
-import Footer from "../../client/Footer";
+import HomePage from "../pages/HomePage";
+import MenuPage from "../pages/MenuPage";
+import DomiciliosPage from "../pages/DomiciliosPage";
+
+import Footer from "./Footer";
 /*
   Componente que realiza el manejo de Paginas del proyecto
 */
@@ -24,8 +26,8 @@ export default class MainView extends Component {
         <Row>
           <Col sm={12}>
             <Switch>
-              <Route exact path="/" component={Hero} />
-              <Route path="/menus" component={Menu} />
+              <Route exact path="/" component={HomePage} />
+              <Route path="/menus" component={MenuPage} />
             </Switch>
           </Col>
         </Row>

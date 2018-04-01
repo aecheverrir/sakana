@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PropTypes from "prop-types";
+import { Menus } from "../../api/menus";
+import NotLoggedNavBar from "./NotLoggedNavBar";
+import MainView from "./MainView";
 
-import { Menus } from "../api/menus";
-
-
-import NotLoggedNavBar from "../ui/components/NotLoggedNavBar";
-import MainView from "../ui/components/MainView";
 
 class App extends Component{
     constructor(props) {
@@ -19,7 +17,6 @@ class App extends Component{
         return(
             <div>
                 <NotLoggedNavBar />
-                
                 <MainView menus={this.props.menus}/>
             </div>
         )
