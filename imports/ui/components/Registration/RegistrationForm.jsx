@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
+import { withRouter } from 'react-router-dom'
 import { LinkContainer } from "react-router-bootstrap";
-import { Grid, Row, Col, Jumbotron, FormControl, FormGroup, ControlLabel, Button } from "react-bootstrap";
+import { Grid, Row, Col, Jumbotron, Panel, FormControl, FormGroup, ControlLabel, Button } from "react-bootstrap";
 
 import PropTypes from "prop-types";
 
-export default class LoginModal extends Component {
+export default class RegistrationForm extends Component {
 
   constructor(props) {
     super(props);
@@ -29,12 +30,12 @@ export default class LoginModal extends Component {
     this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
 
     event.preventDefault();
 
     //Login
-    if (this.state.login) {
+    if (this.props.isLogin) {
       Meteor.loginWithPassword(this.state.username, this.state.password, (e) => {
         if (e) {
           console.log("[ERROR] No se realiza el login: " + e.reason);
@@ -44,12 +45,13 @@ export default class LoginModal extends Component {
         }
         else {
           //TODO redireccionar a la pagina principal
+          this.props.history.push("/");
         }
       });
     }
     //SignUp
     else {
-      if (verifyPasswords()) {
+      if (this.state.password === this.state.passwordDos) {
         let newUser = {
           email: this.state.email,
           password: this.state.password,
@@ -68,6 +70,7 @@ export default class LoginModal extends Component {
           }
           else {
             //TODO redireccionar a la pagina principal
+            this.props.history.push("/");
           }
         });
       }
@@ -82,41 +85,37 @@ export default class LoginModal extends Component {
 
   }
 
-  verifyPasswords() {
-    return (this.state.password === this.state.passwordDos);
-  }
-
-  handleNameChange(event) {
+  handleNameChange = (event) => {
     this.setState({
       name: event.target.value
     });
   }
 
-  handleEmailChange(event) {
+  handleEmailChange = (event) => {
     this.setState({
       email: event.target.value
     });
   }
 
-  handleUsernameChange(event) {
+  handleUsernameChange = (event) => {
     this.setState({
       username: event.target.value
     });
   }
 
-  handlePasswordChange(event) {
+  handlePasswordChange = (event) => {
     this.setState({
       password: event.target.value
     });
   }
 
-  handlePasswordDosChange(event) {
+  handlePasswordDosChange = (event) => {
     this.setState({
       passwordDos: event.target.value
     });
   }
 
-  handlePhoneNumberChange(event) {
+  handlePhoneNumberChange = (event) => {
     this.setState({
       phoneNumber: event.target.value
     });
@@ -125,6 +124,7 @@ export default class LoginModal extends Component {
   render() {
     return (
       <Grid>
+        {console.log("is login? " + this.props.isLogin)}
         <Row>
           <Col xs={12} sm={12} md={5}>
             <Jumbotron>
@@ -138,6 +138,18 @@ export default class LoginModal extends Component {
                   A continuación, ingrese los datos pedidos para crear su cuenta.
                 </p>
               }
+              {this.state.error.length > 0 ? 
+                <Panel bsStyle="danger">
+                  <Panel.Heading>
+                    <Panel.Title componentClass="h3">Error al enviar los datos</Panel.Title>
+                  </Panel.Heading>
+                  <Panel.Body>No ha sido posible realizar la acción: {this.state.error}</Panel.Body>
+                </Panel>
+                :
+                null
+              }
+              
+
             </Jumbotron>
           </Col>
           <Col xs={12} sm={12} md={7}>
@@ -177,6 +189,14 @@ export default class LoginModal extends Component {
                       onChange={this.handleNameChange}
                     />
                   </FormGroup>
+                  <FormGroup controlId="phoneNumberInput">
+                    <ControlLabel>Telefono</ControlLabel>
+                    <FormControl
+                      type="text"
+                      placeholder="Ingrese su número telefónico"
+                      onChange={this.handlePhoneNumberChange}
+                    />
+                  </FormGroup>
                   <FormGroup controlId="emailInput">
                     <ControlLabel>Correo Electrónico</ControlLabel>
                     <FormControl
@@ -190,7 +210,7 @@ export default class LoginModal extends Component {
                 null
               }
               <FormGroup controlId="">
-                <Button type="submit">{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
+                <Button type="submit" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
               </FormGroup>
             </form>
           </Col>
@@ -201,6 +221,6 @@ export default class LoginModal extends Component {
 
 }
 
-LoginModal.propTypes = {
+RegistrationForm.propTypes = {
   isLogin: PropTypes.bool.isRequired
 }
