@@ -11,7 +11,7 @@ export default class DomiciliosPage extends React.Component{
     render(){
         return(
             <div>
-                
+                <h1>domicilios</h1>
             </div>
         )
     }

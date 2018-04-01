@@ -28,6 +28,7 @@ export default class MainView extends Component {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/menus" component={MenuPage} />
+              <Route path="/domicilios" component={DomiciliosPage} />
             </Switch>
           </Col>
         </Row>
