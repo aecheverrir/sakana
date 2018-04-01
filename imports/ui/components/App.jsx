@@ -14,17 +14,14 @@ class App extends Component{
     constructor(props) {
         super(props);
 
-        this.onSignOut.bind(this);
     }
-    
-    nextPath = () =>{
-
-    };
 
     onSignOut= () =>{
         if(Meteor.user()){
-            Meteor.logoutOtherClients((e) =>{
-                console.log("ERROR: no fue posible realizar un logout!")
+            Meteor.logout((e) =>{
+                if(e !== undefined){
+                    console.log("ERROR: no fue posible realizar un logout: " + e);
+                }
             });
         }
     };
@@ -33,7 +30,7 @@ class App extends Component{
         
         return(
             <div>
-                <NavigationBar currentUser={this.props.currentUser} />
+                <NavigationBar currentUser={this.props.currentUser} onSignOut={this.onSignOut.bind(this)} />
                 <MainView menus={this.props.menus} currentUser={this.props.currentUser} />
             </div>
         )

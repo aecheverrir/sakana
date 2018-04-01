@@ -12,7 +12,7 @@ export default class NavigationBar extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <Navbar collapseOnSelect fixedTop>
@@ -53,12 +53,13 @@ export default class NavigationBar extends Component {
               <NavDropdown title={this.props.currentUser.username} id="Dropdown-Opciones-Usuario">
                 <MenuItem>Modificar Perfil</MenuItem>
                 <MenuItem divider />
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={this.props.onSignOut}>Logout</MenuItem>
               </NavDropdown>
             </Nav>
           }
 
           <Nav pullRight>
+            <AccountsUIWrapper />
             {/*Lista de los menus*/}
             <LinkContainer to="/menus">
               <NavItem >Menus</NavItem>
