@@ -481,6 +481,7 @@ header nav ul li a:hover{
     top: 10px;
     right: -220px;    
 }
+
 .featured_dishes{
     padding: 100px 0;
     overflow: hidden;
@@ -575,6 +576,14 @@ header nav ul li a:hover{
    background-position: -13px 0;
 }
 
+/*    Domicilios    */
+.state h2{
+    vertical-align: text-bottom;
+}
+.data{
+    float: left;
+    display: block;
+}
 
 /*    gallery    */
 .gallery{

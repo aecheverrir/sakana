@@ -1,4 +1,5 @@
 import React from 'react';
+import Domicilio from '../components/Domicilio';
 
 export default class DomiciliosPage extends React.Component{
     constructor(){
@@ -11,7 +12,7 @@ export default class DomiciliosPage extends React.Component{
     render(){
         return(
             <div>
-                <h1>domicilios</h1>
+                <Domicilio />
             </div>
         )
     }
