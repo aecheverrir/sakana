@@ -59,7 +59,6 @@ export default class NavigationBar extends Component {
           }
 
           <Nav pullRight>
-            <AccountsUIWrapper />
             {/*Lista de los menus*/}
             <LinkContainer to="/menus">
               <NavItem >Menus</NavItem>
