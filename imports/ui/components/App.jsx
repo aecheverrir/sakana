@@ -1,7 +1,9 @@
+import { Meteor } from 'meteor/meteor'
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PropTypes from "prop-types";
+
 import { Menus } from "../../api/menus";
 import NotLoggedNavBar from "./NotLoggedNavBar";
 import MainView from "./MainView";
@@ -12,12 +14,22 @@ class App extends Component{
         super(props);
     }
     
+    onLogin(){
+
+    }
+    onLogout(){
+
+    }
+    onSignUp(){
+        
+    }
+    
     render(){
-        {console.log(this.props.menus)}
+        
         return(
             <div>
-                <NotLoggedNavBar />
-                <MainView menus={this.props.menus}/>
+                <NotLoggedNavBar currentUser={this.props.currentUser} />
+                <MainView menus={this.props.menus} currentUser={this.props.currentUser} />
             </div>
         )
     }
@@ -30,5 +42,6 @@ App.propTypes = {
 export default withTracker(() => {
     return {
         menus: Menus.find({}).fetch(),
+        currentUser: Meteor.user()
     };
 })(App);
