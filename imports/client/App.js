@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-
+import { withTracker } from 'meteor/react-meteor-data';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Banner from './Banner';
-import Hero from './Hero';
-import Menu from './Menu';
-import Footer from './Footer' 
 
-export default class App extends Component{
+import { Menus } from "../api/menus";
+
+import NotLoggedNavBar from "../ui/components/NotLoggedNavBar";
+import MainView from "../ui/components/MainView";
+
+class App extends Component{
     constructor(){
         super();
         this.state = {
@@ -15,13 +16,18 @@ export default class App extends Component{
     }
     
     render(){
+        {console.log(this.props.menus)}
         return(
             <div>
-                <Banner />
-                <Hero />
-                <Menu />
-                <Footer />
+                <NotLoggedNavBar />
+                <MainView />
             </div>
         )
     }
 }
+
+export default withTracker(() => {
+    return {
+        menus: Menus.find({}).fetch(),
+    };
+})(App);
