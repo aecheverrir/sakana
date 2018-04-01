@@ -14,14 +14,12 @@ class App extends Component{
         super(props);
     }
     
-    onLogin(){
-
-    }
+    
     onLogout(){
 
     }
     onSignUp(){
-        
+
     }
     
     render(){
