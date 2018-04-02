@@ -1,7 +1,7 @@
 import React from "react";
-import MenuItem from "./Menu/MenuItem";
 import MenuTitle from "./Menu/MenuTitle";
 import MenuCategory from "./Menu/MenuCategory";
+import MenuCategoryList from "./Menu/MenuCategoryList";
 import PropTypes from "prop-types";
 
 export default class Menu extends React.Component{
@@ -12,60 +12,46 @@ export default class Menu extends React.Component{
         }
     }
 
+    /*
+    renderMenu() {
+        return this.props.menus.map((p,i) =>
+            <div>
+                <MenuCategory
+                    key={p.categoria + i}
+                    cat={p.categoria}>
+                </MenuCategory>
+            </div>
+        );
+    }
+    */
+
+    /*
+    <MenuCategoryList >
+        key={i}
+        platos={p.platos}
+    </MenuCategoryList>
+    */
+
     render(){
         return(
             <section id="menu" className="menu">
-		        <div className="wrapper">
-                    
+		        <div className="wrapper">        
                     <MenuTitle />
-
-                    <MenuCategory cat="Entradas"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
-                    <MenuCategory cat="Arroces"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
-                    <MenuCategory cat="Yakisoba"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
-                    <MenuCategory cat="Ramen"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
-                    <MenuCategory cat="Sushi"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
-                    <MenuCategory cat="Sushi Tempura"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
-                    <MenuCategory cat="Bebidas"/>
-                    <ul>
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                        <MenuItem name="California Roll" description="Cheese, tomato, mushrooms, onions." price="25.000" img="https://i.imgur.com/CEM270s.jpg" />
-                    </ul>
-
+                    {
+                        this.props.menus.map((p,i) => {
+                            return(
+                                <div key={i}>
+                                    <MenuCategory
+                                        cat={p.categoria}>
+                                        {console.log(i)}
+                                    </MenuCategory>
+                                    <MenuCategoryList >
+                                        platos={p.platos}
+                                    </MenuCategoryList>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </section>
         )

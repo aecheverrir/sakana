@@ -13,7 +13,46 @@ import MainView from "./MainView";
 class App extends Component{
     constructor(props) {
         super(props);
-
+        this.state = {
+            menus:[ 
+                {
+                    categoria: "entradas", 
+                    platos: 
+                    [	 
+                        {
+                            "nombre":"California Roll",
+                            "precio":10,
+                            "descripcion":"el plato tiene : bla bla",
+                            "img":"https://i.imgur.com/CEM270s.jpg" 
+                        },
+                        {
+                            "nombre":"California Roll",
+                            "precio":10,
+                            "descripcion":"el plato tiene : bla bla",
+                            "img":"https://i.imgur.com/CEM270s.jpg"
+                        }
+                    ]	
+                },
+                {
+                    categoria: "arroces", 
+                    platos: 
+                    [	 
+                        {
+                            "nombre":"California Roll",
+                            "precio":10,
+                            "descripcion":"el plato tiene : bla bla",
+                            "img":"https://i.imgur.com/CEM270s.jpg" 
+                        },
+                        {
+                            "nombre":"California Roll",
+                            "precio":10,
+                            "descripcion":"el plato tiene : bla bla",
+                            "img":"https://i.imgur.com/CEM270s.jpg"
+                        }
+                    ]
+                } 
+            ]
+        }
     }
 
     onSignOut= () =>{
@@ -31,7 +70,7 @@ class App extends Component{
         return(
             <div>
                 <NavigationBar currentUser={this.props.currentUser} onSignOut={this.onSignOut.bind(this)} />
-                <MainView menus={this.props.menus} currentUser={this.props.currentUser} />
+                <MainView menus={this.state.menus} currentUser={this.props.currentUser} />
             </div>
         )
     }

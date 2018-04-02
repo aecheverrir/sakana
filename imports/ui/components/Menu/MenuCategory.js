@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 export default class MenuCategory extends React.Component{
     constructor(){
@@ -17,4 +18,8 @@ export default class MenuCategory extends React.Component{
             </section>
         )
     }
+}
+
+MenuCategory.propTypes = {
+    cat: PropTypes.string.isRequired
 }
