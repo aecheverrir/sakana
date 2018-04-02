@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { Meteor } from 'meteor/meteor'
 import PropTypes from "prop-types";
 import { Roles } from 'meteor/alanning:roles';
 import { FormControl, FormGroup, ControlLabel, Button } from "react-bootstrap";
+
 
 export default class MenuItem extends React.Component {
     constructor() {
@@ -26,12 +28,12 @@ export default class MenuItem extends React.Component {
     render() {
         return (
             <li>
-                <img src={this.props.img} alt="foto del plato" />
+                <img src={this.props.item.img} alt="foto del plato" />
                 <div className="item_info">
-                    <h3 className="item_name"> {this.props.name} </h3>
+                    <h3 className="item_name"> {this.props.item.name} </h3>
                     <p className="item_desc"> {this.props.description} </p>
                     {this.props.currentUser ?
-                        <form onSubmit={this.onHandleSubmit.bind(this)}>
+                        <form onSubmit={this.onHandleSubmit.item.bind(this)}>
                             <FormGroup >
                                 <Button type="submit" bsSize="large" block>Agregar a Pedido</Button>
                             </FormGroup>
@@ -51,7 +53,7 @@ export default class MenuItem extends React.Component {
                         null
                     }
                 </div>
-                <h4 className="price"> $ {this.props.price} </h4>
+                <h4 className="price"> $ {this.props.item.price} </h4>
                 <span className="separator"></span>
             </li>
         )
@@ -59,5 +61,9 @@ export default class MenuItem extends React.Component {
 }
 MenuItem.propTypes = {
     currentUser: PropTypes.object
+}
+
+MenuItem.propTypes = {
+    item: PropTypes.object.isRequired,
 }
 

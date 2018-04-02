@@ -10,11 +10,6 @@ export default class DomicilioItem extends React.Component{
     }
 
     render(){
-
-        var styles = { 
-            "color": "#5bc0de"
-        }; 
-
         return(
             <div>
                 <Grid fluid>
