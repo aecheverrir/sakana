@@ -75,6 +75,7 @@ export default class RegistrationForm extends Component {
             this.props.history.push("/");
           }
         });
+
       }
       else {
         console.log("[ERROR] No se realiza el signup: Passwords dont match!");
