@@ -12,7 +12,11 @@ export default class DomiciliosPage extends React.Component{
     render(){
         return(
             <div>
-                <Domicilio />
+                <Domicilio 
+                    pedidos={this.props.pedidos} 
+                    onCreatePedido={this.props.onCreatePedido}
+                    pedidoActual={this.props.pedidoActual}
+                />
             </div>
         )
     }

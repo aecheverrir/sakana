@@ -70,7 +70,7 @@ Meteor.methods({
     Menus.remove(_id);
     console.log("removed!")
   },
-
+  
   "menus.setVisibility"(_id, itemName, setVisibility) {
     check(_id, Match.Any);
     check(itemName, String);

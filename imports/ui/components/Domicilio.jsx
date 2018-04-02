@@ -1,11 +1,49 @@
 import React from 'react';
 import DomicilioItem from "./Domicilio/DomicilioItem"
 
+import { Grid, Panel, PanelGroup, ListGroup, ListGroupItem, FormControl, FormGroup, ControlLabel, Button, Well } from "react-bootstrap";
+
 export default class Hero extends React.Component{
     constructor(){
         super();
         this.state = {
-            count: 0
+            address: "",
+            comment: "",
+            error:"",
+        }
+    }
+
+    handleAddressChange = (event) => {
+        this.setState({
+            address: event.target.value
+        });
+    }
+
+    handleCommentChange = (event) => {
+        this.setState({
+            comment: event.target.value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        if (this.props.pedidoActual.items.length === 0){
+            this.setState({
+                error: "Debe agregar elementos del menu para hacer el pedido!"
+            });
+        }
+        else if(this.state.address.length === 0){
+            this.setState({
+                error: "Debe agregar una direccion para hacer el pedido!"
+            });
+        }
+        else{
+            this.props.onCreatePedido(this.state.address, this.state.comment);
+            this.setState({
+                address: "",
+                comment: "",
+                error: "",
+            });
         }
     }
 
@@ -28,13 +66,60 @@ export default class Hero extends React.Component{
         };
 
         return(
-            <div>
-                <DomicilioItem state="Procesando Solicitud ... " style={styleProcessing} date="17/08/2018" price="$30.000" address="Calle 12 #22 -10" />
-                <DomicilioItem state="Preparando Comida" style={styleFood} date="15/08/2018" price="$40.000" address="Calle 12 #22 -10" />
-                <DomicilioItem state="Comida en Camino" style={styleSending} date="14/08/2018" price="$35.000" address="Calle 12 #22 -10" />
-                <DomicilioItem state="Domicilio Finalizado" style={styleFinished} date="10/08/2018" price="$38.000" address="Calle 12 #22 -10" />
-                <DomicilioItem state="Solicitud Rechazada" style={styleCanceled} date="10/08/2018" price="$38.000" address="Calle 12 #22 -10" />
-            </div>
+            <Grid>
+                <PanelGroup accordion id="accordion-controlled-Domicilios">
+                    <Panel>
+                        <Panel.Heading>
+                            <Panel.Title toggle>Nuevo Pedido:</Panel.Title>
+                        </Panel.Heading>
+
+                        <Panel.Body collapsible>
+                            <form onSubmit={this.handleSubmit.bind(this)}>
+                                <FormGroup controlId="AddressInput">
+                                    <ControlLabel>Dirección</ControlLabel>
+                                    <FormControl
+                                        type="text"
+                                        placeholder="Ingrese su dirección"
+                                        onChange={this.handleAddressChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup controlId="CommentInput">
+                                    <ControlLabel>Comentarios</ControlLabel>
+                                    <FormControl
+                                        type="text"
+                                        placeholder="Ingrese los comentarios que desee"
+                                        onChange={this.handleCommentChange}
+                                    />
+                                </FormGroup>
+                                {this.state.error ? 
+                                    <Well>{this.state.error}</Well>
+                                    :
+                                    null
+                                }
+                                <FormGroup controlId="domicilioCrear">
+                                    <Button type="submit" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
+                                </FormGroup>
+
+                            </form>
+                        </Panel.Body>
+
+                        <ListGroup>
+                            
+                            {this.props.pedidoActual.items.map((p, i) =>
+                                <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}:${p.price}</h4> {p.description} </ListGroupItem>
+                            )}
+                        </ListGroup>
+                    </Panel>
+                </PanelGroup>
+                <PanelGroup accordion id="accordion-controlled-Domicilios">
+                    {
+                        this.props.pedidos.map((p, i) =>
+                            <DomicilioItem key={p._id} pedido={p} />
+                        )
+                    }
+                </PanelGroup>
+            </Grid>
+            
         )
     }
 }

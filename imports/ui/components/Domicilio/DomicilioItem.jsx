@@ -1,36 +1,33 @@
 import React from 'react';
-import { Grid, Row, Col } from "react-bootstrap";
+import { Grid, Row, Col, Panel, ListGroup, ListGroupItem } from "react-bootstrap";
 
-export default class DomicilioItem extends React.Component{
-    constructor(){
+export default class DomicilioItem extends React.Component {
+    constructor() {
         super();
-        this.state = {
-            count: 0
-        }
+
     }
 
-    render(){
-        return(
-            <div>
-                <Grid fluid>
-                    <Row>
-                        <Col sm={9}>
-                            <div className="data">
-                                <h3> {this.props.date} </h3>
-                                <h3> {this.props.price} </h3>
-                                <h3> {this.props.address} </h3>
-                            </div>
-                        </Col>
-                        <Col sm={3}>
-                            <div className="state">
-                                <h2 style={this.props.style} > {this.props.state} </h2>
-                            </div>
-                        </Col>
-                    </Row>
-                </Grid>
-                <hr></hr>
-            </div>
+    render() {
+        return (
+            <Panel>
+                <Panel.Heading>
+                    <Panel.Title toggle>{this.props.pedido.address + ":  " + this.props.pedido.pedidoState}</Panel.Title>
+                </Panel.Heading>
+
+                <Panel.Body collapsible>
+                    <p>Valor Total: ${this.props.pedido.price}</p>
+                    <p>Comentarios: ${this.props.pedido.comment}</p>
+                </Panel.Body>
+
+                <ListGroup>
+                    <ListGroupItem bsStyle="info"><h4>Estado:</h4> '{this.props.pedido.pedidoState}'</ListGroupItem>
+                    {this.props.pedido.items.map((p, i) =>
+                        <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}:${p.price}</h4> {p.description} </ListGroupItem>
+                    )}
+                </ListGroup>
+            </Panel>
         )
     }
 }
+
 
