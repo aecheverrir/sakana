@@ -10,51 +10,10 @@ import { Pedidos } from "../../api/pedidos";
 import NavigationBar from "./NotLoggedNavBar";
 import MainView from "./MainView";
 
-import { Button } from "react-bootstrap";
-
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            menus:[ 
-                {
-                    category: "entradas", 
-                    menuItems: 
-                    [	 
-                        {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg" 
-                        },
-                        {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg"
-                        }
-                    ]	
-                },
-                {
-                    category: "arroces", 
-                    menuItems: 
-                    [	 
-                        {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg" 
-                        },
-                        {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg"
-                        }
-                    ]
-                } 
-            ],
-          
+        this.state = {       
             pedidoActual: {
                 items: []
             }
@@ -68,12 +27,12 @@ class App extends Component {
 
         let pedido = this.state.pedidoActual;
         let itemsN = this.state.pedidoActual.items;
-        if (itemsN.length > 0 ){
-            pedido.owner = Meteor.userId();
+        if (itemsN.length === 0 ){
+            pedido.owner = Meteor.user()._id;
             pedido.creationDate = new Date();
         }
         itemsN.push(newItem);
-        
+        console.log(pedido);
         this.setState({
             pedidoActual: {
                 owner: pedido.owner,
@@ -81,7 +40,7 @@ class App extends Component {
                 items: itemsN
             }
         });
-    }
+    };
 
     onCreatePedido = (address, comments) => {
         let pedido = this.state.pedidoActual;
@@ -93,10 +52,17 @@ class App extends Component {
             precio += item.price;
         });
         pedido.price = precio;
+        console.log(pedido);
 
-        Meteor.call("pedidos.insert");
-        this.props.history.push("/");
-    }
+        Meteor.call("pedidos.insert", pedido);
+
+        this.setState({
+            pedidoActual: {
+                items: []
+            }
+        });
+        this.props.history.push("/domicilios");
+    };
 
     onSignOut = () => {
         if (Meteor.user()) {
@@ -140,18 +106,19 @@ class App extends Component {
 
         return (
             <div>
-                <form>
-                    <Button onClick={this.addMenu}>agregar</Button>
-                    <Button onClick={this.deleteMenu}>eliminar</Button>
-                    <Button onClick={this.updateMenu}>cambiar</Button>
-                </form>
-                <NavigationBar currentUser={this.props.currentUser} onSignOut={this.onSignOut.bind(this)} />
+                <NavigationBar 
+                    currentUser={this.props.currentUser} 
+                    pedidoActual={this.state.pedidoActual} 
+                    onSignOut={this.onSignOut.bind(this)} 
+                />
                 <MainView 
                     menus={this.props.menus} 
                     pedidos={this.props.pedidos} 
                     currentUser={this.props.currentUser}
                     onAddToPedidoActual={this.onAddToPedidoActual.bind(this)}
                     updateMenu={this.updateMenu.bind(this)}
+                    onCreatePedido={this.onCreatePedido.bind(this)}
+                    pedidoActual={this.state.pedidoActual}
                 />
             </div>
         )

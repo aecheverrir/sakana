@@ -11,8 +11,16 @@ export default class MenuItem extends React.Component {
         super(props);
     }
 
-    onHandleSubmit = () => {
-        this.onAddToPedidoActual(this.props.item);
+    onHandleSubmit = (event) => {
+        event.preventDefault();
+
+        let item = {};
+        item.name = this.props.item.name;
+        item.description = this.props.item.description;
+        item.price = this.props.item.price;
+        
+        console.log(item);
+        this.props.onAddToPedidoActual(item);
     };
 
     onHandleVisibilityChange = (event) => {
@@ -29,7 +37,7 @@ export default class MenuItem extends React.Component {
                 <img src={this.props.item.image} alt="foto del plato" />
                 <div className="item_info">
                     <h3 className="item_name"> {this.props.item.name} </h3>
-                    <p className="item_desc"> {this.props.description} </p>
+                    <p className="item_desc"> {this.props.item.description} </p>
                     {Meteor.user() ?
                         <form onSubmit={this.onHandleSubmit.bind(this)}>
                             <FormGroup >
@@ -40,9 +48,14 @@ export default class MenuItem extends React.Component {
                         null
                     }
                     {Roles.userIsInRole(Meteor.userId(), "admin") ?
-                        <form onChange={this.onHandleVisibilityChange.bind(this)}>
+                        <form>
                             <ControlLabel>Seleccionar Visibilidad</ControlLabel>
-                            <FormControl componentClass="select" placeholder="select">
+                            <FormControl 
+                                componentClass="select" 
+                                value={this.props.item.visibility}
+                                onChange={this.onHandleVisibilityChange.bind(this)} 
+                                placeholder="select"
+                            >
                                 <option value={true}>Visible</option>
                                 <option value={false}>Oculto</option>
                             </FormControl>

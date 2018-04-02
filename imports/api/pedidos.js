@@ -59,10 +59,9 @@ Meteor.methods({
     check(pedidoCollect, {
       owner: Match.Any,
       address: String,
-      pedidoState: Match.Optional,
       creationDate: Date,
-      comments: Match.Optional,
-      price: Match.Integer,
+      comments: Match.Any,
+      price: Number,
       items: Match.Any
     });
 

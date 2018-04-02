@@ -45,7 +45,7 @@ export default class NavigationBar extends Component {
             <Nav pullRight>
               {/*Lista de los domicilios/pedidos del cliente*/}
               <LinkContainer to="/domicilios">
-                <NavItem >Domicilios</NavItem>
+                <NavItem >Domicilios {this.props.pedidoActual.items.length > 0 ? "(1)" : null}</NavItem>
               </LinkContainer>
 
               {/*Lista con opciones del cliente*/}
