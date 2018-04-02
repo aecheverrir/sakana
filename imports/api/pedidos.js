@@ -69,25 +69,32 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     
-    pedidoCollect.pedidoState = "recibido";
+    pedidoCollect.pedidoState = "Pedido recibido";
 
     Pedidos.insert(pedidoCollect);
   },
+
   "pedidos.remove"(_id, pedidoState) {
     check(_id, Match.Any);
     check(pedidoState, String);
     if (!this.userId || (pedidoCollect.owner !== this.userId)) {
       throw new Meteor.Error('not-authorized');
     }
-    if(pedidoState !== "recibido"){
+    if (pedidoState !== "Pedido recibido"){
       throw new Meteor.Error('El pedido ya esta en proceso');
     }
 
     Pedidos.remove(_id);
   },
-  "pedidos.setState"(_id, setPedidoState) {
-    check(menuId, Match.Any);
+
+  "pedidos.setState"(_id, owner, setPedidoState) {
+    check(_id, Match.Any);
+    check(owner, Match.Any);
     check(setPedidoState, String);
+
+    if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
+      throw new Meteor.Error('not-authorized');
+    }
 
     Pedidos.update({ _id: _id }, { $set: { pedidoState: setPedidoState } });
   },

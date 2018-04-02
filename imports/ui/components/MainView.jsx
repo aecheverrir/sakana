@@ -34,7 +34,10 @@ export default class MainView extends Component {
                 render={
                   (props) => <MenuPage {...props} updateMenu={this.props.updateMenu} onAddToPedidoActual={this.props.onAddToPedidoActual} currentUser={this.props.currentUser} menus={this.props.menus}/>
               } />
-              <Route path="/domicilios" render={(props) => <DomiciliosPage {...props} pedidos={this.props.pedidos} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} />} />
+              <Route path="/domicilios" 
+                render={
+                  (props) => <DomiciliosPage {...props} pedidos={this.props.pedidos} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} onSetStatePedido={this.props.onSetStatePedido} />
+              } />
               <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
               <Route path="/signup" render={(props) => <RegistrationForm {...props} isLogin={false} />} />
               <Route path="/adminSignUp" render={(props) => <RegistrationAdmin {...props} />} />
