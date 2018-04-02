@@ -7,11 +7,8 @@ import { FormControl, FormGroup, ControlLabel, Button } from "react-bootstrap";
 
 
 export default class MenuItem extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            count: 0
-        }
+    constructor(props) {
+        super(props);
     }
 
     onHandleSubmit = () => {
@@ -19,21 +16,22 @@ export default class MenuItem extends React.Component {
     };
 
     onHandleVisibilityChange = (event) => {
-        let visible = event.target.value;
+        let visible = (event.target.value === "true");
+        console.log("visible: " + visible + " " + typeof(visible))
         let itemName = this.props.item.name;
-        let _id = this.props.category._id;
+        let _id = this.props.categoryId;
         this.props.updateMenu(_id, itemName, visible);
     };
 
     render() {
         return (
             <li>
-                <img src={this.props.item.img} alt="foto del plato" />
+                <img src={this.props.item.image} alt="foto del plato" />
                 <div className="item_info">
                     <h3 className="item_name"> {this.props.item.name} </h3>
                     <p className="item_desc"> {this.props.description} </p>
-                    {this.props.currentUser ?
-                        <form onSubmit={this.onHandleSubmit.item.bind(this)}>
+                    {Meteor.user() ?
+                        <form onSubmit={this.onHandleSubmit.bind(this)}>
                             <FormGroup >
                                 <Button type="submit" bsSize="large" block>Agregar a Pedido</Button>
                             </FormGroup>
@@ -41,9 +39,9 @@ export default class MenuItem extends React.Component {
                         :
                         null
                     }
-                    {!Roles.userIsInRole(Meteor.userId(), "admin") ?
+                    {Roles.userIsInRole(Meteor.userId(), "admin") ?
                         <form onChange={this.onHandleVisibilityChange.bind(this)}>
-                            <ControlLabel>Select</ControlLabel>
+                            <ControlLabel>Seleccionar Visibilidad</ControlLabel>
                             <FormControl componentClass="select" placeholder="select">
                                 <option value={true}>Visible</option>
                                 <option value={false}>Oculto</option>

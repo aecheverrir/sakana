@@ -21,9 +21,13 @@ export default class Menu extends React.Component{
                         this.props.menus.map((p,i) => {
                             return(
                                 <div key={i}>
-                                    <MenuCategory cat={p.categoria} />
-                                    {console.log(p.platos)}
-                                    <MenuCategoryList platos={p.platos} />
+                                    <MenuCategory category={p.category} />
+                                    <MenuCategoryList 
+                                        updateMenu={this.props.updateMenu}
+                                        onAddToPedidoActual={this.props.onAddToPedidoActual} 
+                                        menuItems={p.menuItems}
+                                        categoryId={p._id}
+                                    />
                                 </div>
                             )
                         })

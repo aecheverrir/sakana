@@ -11,8 +11,14 @@ export default class MenuCategoryList extends React.Component{
     }
 
     renderMenuItems() {
-        return this.props.platos.map((p,i) =>
-                <MenuItem key={p.nombre + i} item={p} />
+        return this.props.menuItems.map((p,i) =>
+            <MenuItem 
+                key={p.name + i} 
+                item={p} 
+                categoryId={this.props.categoryId}
+                onAddToPedidoActual={this.props.onAddToPedidoActual}
+                updateMenu={this.props.updateMenu}
+            />
         );
     }
 

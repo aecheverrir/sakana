@@ -32,7 +32,7 @@ export default class MainView extends Component {
               <Route exact path="/" render={(props) => <HomePage {...props} />} />
               <Route path="/menus" 
                 render={
-                  (props) => <MenuPage {...props} onAddToPedidoActual={this.props.onAddToPedidoActual} currentUser={this.props.currentUser} menus={this.props.menus}/>
+                  (props) => <MenuPage {...props} updateMenu={this.props.updateMenu} onAddToPedidoActual={this.props.onAddToPedidoActual} currentUser={this.props.currentUser} menus={this.props.menus}/>
               } />
               <Route path="/domicilios" component={DomiciliosPage} />
               <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />

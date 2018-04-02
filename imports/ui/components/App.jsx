@@ -18,38 +18,38 @@ class App extends Component {
         this.state = {
             menus:[ 
                 {
-                    categoria: "entradas", 
-                    platos: 
+                    category: "entradas", 
+                    menuItems: 
                     [	 
                         {
-                            "nombre":"California Roll",
-                            "precio":10,
-                            "descripcion":"el plato tiene : bla bla",
-                            "img":"https://i.imgur.com/CEM270s.jpg" 
+                            "name":"California Roll",
+                            "price":10,
+                            "description":"el plato tiene : bla bla",
+                            "image":"https://i.imgur.com/CEM270s.jpg" 
                         },
                         {
-                            "nombre":"California Roll",
-                            "precio":10,
-                            "descripcion":"el plato tiene : bla bla",
-                            "img":"https://i.imgur.com/CEM270s.jpg"
+                            "name":"California Roll",
+                            "price":10,
+                            "description":"el plato tiene : bla bla",
+                            "image":"https://i.imgur.com/CEM270s.jpg"
                         }
                     ]	
                 },
                 {
-                    categoria: "arroces", 
-                    platos: 
+                    category: "arroces", 
+                    menuItems: 
                     [	 
                         {
-                            "nombre":"California Roll",
-                            "precio":10,
-                            "descripcion":"el plato tiene : bla bla",
-                            "img":"https://i.imgur.com/CEM270s.jpg" 
+                            "name":"California Roll",
+                            "price":10,
+                            "description":"el plato tiene : bla bla",
+                            "image":"https://i.imgur.com/CEM270s.jpg" 
                         },
                         {
-                            "nombre":"California Roll",
-                            "precio":10,
-                            "descripcion":"el plato tiene : bla bla",
-                            "img":"https://i.imgur.com/CEM270s.jpg"
+                            "name":"California Roll",
+                            "price":10,
+                            "description":"el plato tiene : bla bla",
+                            "image":"https://i.imgur.com/CEM270s.jpg"
                         }
                     ]
                 } 
@@ -130,8 +130,9 @@ class App extends Component {
         let idMenu = this.props.menus[0]._id;
         Meteor.call("menus.remove", idMenu)
     };
+
     updateMenu = (_id, itemName, visible) => {
-        Meteor.call("menus.setVisibility", idMenu, itemName, visible);
+        Meteor.call("menus.setVisibility", _id, itemName, visible);
     };
 
 
@@ -146,10 +147,11 @@ class App extends Component {
                 </form>
                 <NavigationBar currentUser={this.props.currentUser} onSignOut={this.onSignOut.bind(this)} />
                 <MainView 
-                    menus={this.state.menus} 
+                    menus={this.props.menus} 
                     pedidos={this.props.pedidos} 
                     currentUser={this.props.currentUser}
-                    onAddToPedidoActual={this.onAddToPedidoActual}
+                    onAddToPedidoActual={this.onAddToPedidoActual.bind(this)}
+                    updateMenu={this.updateMenu.bind(this)}
                 />
             </div>
         )

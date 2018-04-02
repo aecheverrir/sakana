@@ -13,7 +13,10 @@ export default class MenuPage extends React.Component{
     render(){
         return(
             <div>
-                <Menu menus={this.props.menus}/>
+                <Menu 
+                    onAddToPedidoActual={this.props.onAddToPedidoActual} 
+                    updateMenu={this.props.updateMenu}
+                    menus={this.props.menus}/>
             </div>
         )
     }
