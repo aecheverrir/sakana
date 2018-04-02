@@ -1,6 +1,8 @@
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
+import { Match } from 'meteor/check';
+import { Roles } from 'meteor/alanning:roles';
 import SimpleSchema from "simpl-schema";
 
 export const Pedidos = new Mongo.Collection("pedidos");
@@ -8,7 +10,7 @@ export const Pedidos = new Mongo.Collection("pedidos");
 /*
 const PedidosSchema = new SimpleSchema({
   owner: {
-    type: String
+    type: SimpleSchema.Integer
   },
   address:{
     type: String
@@ -32,39 +34,62 @@ const PedidosSchema = new SimpleSchema({
   "items.$": Object,
   "items.$.name": String,
   "items.$.description": String,
-  "items.$.price": SimpleSchema.Integer
+  "items.$.price": SimpleSchema.Integer,
 });
-
 Pedidos.attachSchema(PedidosSchema);
+*/
 
 if (Meteor.isServer) {
-
+  Meteor.publish("pedidos", function pedidosPublication(  ) {
+    
+    if (Roles.userIsInRole(this.userId, "admin")){
+      console.log("Administrator userId: " + this.userId)
+      return Pedidos.find();
+    }
+    else{
+      console.log("Common userId: " + this.userId)   
+      return Pedidos.find({owner:this.userId});   
+    }
+    
+  })
 }
 
-
 Meteor.methods({
-  "pedidos.insert"(categoria, nombre, descripcion) {
-    check(categoria, String);
-    check(nombre, String);
-    check(descripcion, String);
-
-    //TODO: verificar autorizacion
-
-    Pedidos.insert({
-      visibility: true
+  "pedidos.insert"(pedidoCollect) {
+    check(pedidoCollect, {
+      owner: Match.Any,
+      address: String,
+      pedidoState: Match.Optional,
+      creationDate: Date,
+      comments: Match.Optional,
+      price: Match.Integer,
+      items: Match.Any
     });
-  },
-  "pedidos.remove"(menuId) {
-    check(menuId, String);
 
-    Pedidos.remove(menuId);
+    if (!this.userId || (pedidoCollect.owner !== this.userId)) {
+      throw new Meteor.Error('not-authorized');
+    }
+    
+    pedidoCollect.pedidoState = "recibido";
+
+    Pedidos.insert(pedidoCollect);
   },
-  "pedidos.setState"(idPedido, setPedidoState) {
-    check(menuId, String);
+  "pedidos.remove"(_id, pedidoState) {
+    check(_id, Match.Any);
+    check(pedidoState, String);
+    if (!this.userId || (pedidoCollect.owner !== this.userId)) {
+      throw new Meteor.Error('not-authorized');
+    }
+    if(pedidoState !== "recibido"){
+      throw new Meteor.Error('El pedido ya esta en proceso');
+    }
+
+    Pedidos.remove(_id);
+  },
+  "pedidos.setState"(_id, setPedidoState) {
+    check(menuId, Match.Any);
     check(setPedidoState, String);
 
-    Pedidos.update(idPedido, { $set: { pedidoState: setPedidoState } });
+    Pedidos.update({ _id: _id }, { $set: { pedidoState: setPedidoState } });
   },
 });
-
-*/

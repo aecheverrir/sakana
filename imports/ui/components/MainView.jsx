@@ -9,6 +9,8 @@ import MenuPage from "../pages/MenuPage";
 import DomiciliosPage from "../pages/DomiciliosPage";
 import PageNotFound from "../pages/PageNotFound";
 import RegistrationForm from "../components/Registration/RegistrationForm";
+import RegistrationAdmin from "../components/Registration/RegistrationAdmin";
+import ChangeProfileDataForm from "../components/Registration/ChangeProfileDataForm";
 
 import Footer from "./Footer";
 /*
@@ -28,10 +30,15 @@ export default class MainView extends Component {
           <Col sm={12}>
             <Switch>
               <Route exact path="/" render={(props) => <HomePage {...props} />} />
-              <Route path="/menus" render={(props) => <MenuPage {...props} menus={this.props.menus}/>} />
+              <Route path="/menus" 
+                render={
+                  (props) => <MenuPage {...props} onAddToPedidoActual={this.props.onAddToPedidoActual} currentUser={this.props.currentUser} menus={this.props.menus}/>
+              } />
               <Route path="/domicilios" component={DomiciliosPage} />
               <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
               <Route path="/signup" render={(props) => <RegistrationForm {...props} isLogin={false} />} />
+              <Route path="/adminSignUp" render={(props) => <RegistrationAdmin {...props} />} />
+              <Route path="/changePassword" render={(props) => <ChangeProfileDataForm {...props} />} />
             </Switch>
           </Col>
         </Row>
