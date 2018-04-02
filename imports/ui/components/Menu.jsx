@@ -12,26 +12,6 @@ export default class Menu extends React.Component{
         }
     }
 
-    /*
-    renderMenu() {
-        return this.props.menus.map((p,i) =>
-            <div>
-                <MenuCategory
-                    key={p.categoria + i}
-                    cat={p.categoria}>
-                </MenuCategory>
-            </div>
-        );
-    }
-    */
-
-    /*
-    <MenuCategoryList >
-        key={i}
-        platos={p.platos}
-    </MenuCategoryList>
-    */
-
     render(){
         return(
             <section id="menu" className="menu">
@@ -41,13 +21,9 @@ export default class Menu extends React.Component{
                         this.props.menus.map((p,i) => {
                             return(
                                 <div key={i}>
-                                    <MenuCategory
-                                        cat={p.categoria}>
-                                        {console.log(i)}
-                                    </MenuCategory>
-                                    <MenuCategoryList >
-                                        platos={p.platos}
-                                    </MenuCategoryList>
+                                    <MenuCategory cat={p.categoria} />
+                                    {console.log(p.platos)}
+                                    <MenuCategoryList platos={p.platos} />
                                 </div>
                             )
                         })

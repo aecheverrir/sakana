@@ -12,10 +12,7 @@ export default class MenuCategoryList extends React.Component{
 
     renderMenuItems() {
         return this.props.platos.map((p,i) =>
-                <MenuItem
-                    key={i}
-                    data={p}>
-                </MenuItem>
+                <MenuItem key={p.nombre + i} item={p} />
         );
     }
 
@@ -29,5 +26,5 @@ export default class MenuCategoryList extends React.Component{
 }
 
 MenuCategoryList.propTypes = {
-    platos: PropTypes.array.isRequired
+    platos: PropTypes.array
 }

@@ -12,12 +12,12 @@ export default class MenuItem extends React.Component{
     render(){
         return(
             <li>
-                <img src={this.props.data.img} alt="foto del plato"/> 
+                <img src={this.props.item.img} alt="foto del plato"/> 
                     <div className="item_info">
-                        <h3 className="item_name"> {this.props.data.nombre} </h3> 
-                        <p className="item_desc"> {this.props.data.descripcion} </p>
+                        <h3 className="item_name"> {this.props.item.nombre} </h3> 
+                        <p className="item_desc"> {this.props.item.descripcion} </p>
                     </div>
-                    <h4 className="price"> $ {this.props.data.precio} </h4>
+                    <h4 className="price"> $ {this.props.item.precio} </h4>
                     <span className="separator"></span>              
 			</li>
         )
@@ -25,6 +25,6 @@ export default class MenuItem extends React.Component{
 }
 
 MenuItem.propTypes = {
-    data: PropTypes.object.isRequired,
+    item: PropTypes.object.isRequired,
 }
 
