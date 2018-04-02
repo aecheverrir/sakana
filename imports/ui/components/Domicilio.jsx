@@ -38,12 +38,14 @@ export default class Hero extends React.Component{
             });
         }
         else{
-            this.props.onCreatePedido(this.state.address, this.state.comment);
+            let address = this.state.address;
+            let comment = this.state.comment;
             this.setState({
                 address: "",
                 comment: "",
                 error: "",
             });
+            this.props.onCreatePedido(address,comment);
         }
     }
 
@@ -111,10 +113,15 @@ export default class Hero extends React.Component{
                         </ListGroup>
                     </Panel>
                 </PanelGroup>
-                <PanelGroup accordion id="accordion-controlled-Domicilios">
+                <PanelGroup defaultActiveKey="eventKey1" id="accordion-controlled-Domicilios">
                     {
                         this.props.pedidos.map((p, i) =>
-                            <DomicilioItem key={p._id} pedido={p} />
+                            <DomicilioItem 
+                                key={p._id} 
+                                indice={i} 
+                                pedido={p}
+                                onSetStatePedido={this.props.onSetStatePedido}
+                            />
                         )
                     }
                 </PanelGroup>

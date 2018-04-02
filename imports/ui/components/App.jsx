@@ -65,6 +65,10 @@ class App extends Component {
         this.props.history.push("/domicilios");
     };
 
+    onSetStatePedido = (_id, owner, estado) => {
+        Meteor.call("pedidos.setState", _id, owner, estado);
+    };
+
     onSignOut = () => {
         if (Meteor.user()) {
             Meteor.logout((e) => {
@@ -76,6 +80,7 @@ class App extends Component {
             });
         }
     };
+
     addMenu = () => {
         let algoo = {
             category: "Arroz",
@@ -93,7 +98,6 @@ class App extends Component {
     };
 
     deleteMenu = () => {
-
         let idMenu = this.props.menus[0]._id;
         Meteor.call("menus.remove", idMenu)
     };
@@ -119,6 +123,7 @@ class App extends Component {
                     onAddToPedidoActual={this.onAddToPedidoActual.bind(this)}
                     updateMenu={this.updateMenu.bind(this)}
                     onCreatePedido={this.onCreatePedido.bind(this)}
+                    onSetStatePedido={this.onSetStatePedido.bind(this)}
                     pedidoActual={this.state.pedidoActual}
                 />
             </div>
