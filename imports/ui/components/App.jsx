@@ -9,6 +9,7 @@ import { Menus } from "../../api/menus";
 import NavigationBar from "./NotLoggedNavBar";
 import MainView from "./MainView";
 
+import { Button } from "react-bootstrap";
 
 class App extends Component {
     constructor(props) {
@@ -27,13 +28,44 @@ class App extends Component {
             });
         }
     };
+    addMenu = () =>{
+        let algoo = {
+            category: "Arroz",
+            menuItems: [
+                {
+                    name: "arrocito",
+                    description: "es arroz",
+                    image: "arroz con algo",
+                    price: 25000,
 
+                }
+            ]
+        };
+        Meteor.call("menus.insert", algoo)
+    };
+
+    deleteMenu = () => {
+        
+        let idMenu = this.props.menus[0]._id;
+        Meteor.call("menus.remove", idMenu)
+    };
+    updateMenu = () => {
+
+        let idMenu = this.props.menus[0]._id;
+        let itemName = this.props.menus[0].menuItems[0].name;
+        Meteor.call("menus.setVisibility", idMenu, itemName, false) 
+    };
     
 
     render() {
 
         return (
             <div>
+                <form>
+                    <Button onClick={this.addMenu}>agregar</Button>
+                    <Button onClick={this.deleteMenu}>eliminar</Button>
+                    <Button onClick={this.updateMenu}>cambiar</Button>
+                </form>
                 <NavigationBar currentUser={this.props.currentUser} onSignOut={this.onSignOut.bind(this)} />
                 <MainView menus={this.props.menus} currentUser={this.props.currentUser} />
             </div>

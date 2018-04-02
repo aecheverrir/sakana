@@ -1,6 +1,8 @@
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
+import { Match } from 'meteor/check';
+import { Roles } from 'meteor/alanning:roles';
 import SimpleSchema from "simpl-schema";
 
 export const Menus = new Mongo.Collection("menus");
@@ -28,30 +30,59 @@ Menus.attachSchema(MenusSchema);
 if(Meteor.isServer){
 
 }
-
+*/
 
 Meteor.methods({
-  "menus.insert"(){
-    check(categoria, String);
-    check(nombre, String);
-    check(descripcion, String);
-
-    //TODO: verificar autorizacion
-
-    Menus.insert({
-      visibility: true
+  "menus.insert"(MenuCollect) {
+    check(MenuCollect, {
+      category: String,
+      menuItems: Match.Any
     });
-  },
-  "menus.remove"(menuId) {
-    check(menuId, String);
 
-    Menus.remove(menuId);
+    console.log("UserId: " + this.userId);
+    //!Roles.userIsInRole(this.userId, "admin")
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+    else if (MenuCollect.menuItems.length == 0) {
+      throw new Meteor.Error('Debe tener items!');
+    }
+
+    let items = [];
+    MenuCollect.menuItems.forEach(item => {
+      item.visibility = true;
+      items.push(item);
+    });
+    MenuCollect.menuItems = items;
+
+    Menus.insert(MenuCollect);
   },
-  "menus.setVisibility"(menuId, setVisibility) {
-    check(menuId, String);
+
+  "menus.remove"(_id) {
+    console.log(_id);
+    check(_id, Match.Any);
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized: Only Administrators');
+    }
+    Menus.remove(_id);
+    console.log("removed!")
+  },
+
+  "menus.setVisibility"(_id, itemName, setVisibility) {
+    check(_id, Match.Any);
+    check(itemName, String);
     check(setVisibility, Boolean);
-
-    Menus.update(menuId, { $set: { visibility: setVisibility}});
+    
+    Menus.update({
+      $and: [
+        { _id: _id },
+        { "menuItems.name": itemName }
+      ]
+      }, 
+      { 
+        $set: { "menuItems.$.visibility": setVisibility }
+      }
+    );
+    console.log("changed!")
   },
 });
-*/
