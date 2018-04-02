@@ -24,12 +24,17 @@ export default class MenuItem extends React.Component {
     };
 
     render() {
+
+        var styleDescrip = { 
+            "paddingBottom" : "10px"
+        };
+
         return (
             <li>
                 <img src={this.props.item.image} alt="foto del plato" />
                 <div className="item_info">
                     <h3 className="item_name"> {this.props.item.name} </h3>
-                    <p className="item_desc"> {this.props.description} </p>
+                    <p className="item_desc" style={styleDescrip}> {this.props.item.description} </p>
                     {Meteor.user() ?
                         <form onSubmit={this.onHandleSubmit.bind(this)}>
                             <FormGroup >

@@ -22,39 +22,59 @@ class App extends Component {
                     menuItems: 
                     [	 
                         {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg" 
+                            "name":"Ika furai",
+                            "price":9000,
+                            "description":"calamar apanado con salsa de maracuyá.",
+                            "image":"https://i.imgur.com/CEM270s.jpg",
+                            "visibility": true
+			     
                         },
                         {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg"
+                            "name":"Ebi kokonattsu",
+                            "price":12000,
+                            "description":"camarones encocados.",
+                            "image":"https://i.imgur.com/CEM270s.jpg",
+                            "visibility": true
+                        },
+                        {
+                            "name":"Spring rolls",
+                            "price":8000,
+                            "description":"rollos primavera rellenos de vegetales *3.",
+                            "image":"https://i.imgur.com/CEM270s.jpg",
+                            "visibility": true
                         }
                     ]	
                 },
                 {
-                    category: "arroces", 
+                    category: "sushi", 
                     menuItems: 
                     [	 
                         {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg" 
+                            "name":"Ika furai",
+                            "price":9000,
+                            "description":"calamar apanado con salsa de maracuyá.",
+                            "image":"https://i.imgur.com/CEM270s.jpg",
+                            "visibility": true
+			     
                         },
                         {
-                            "name":"California Roll",
-                            "price":10,
-                            "description":"el plato tiene : bla bla",
-                            "image":"https://i.imgur.com/CEM270s.jpg"
+                            "name":"Ebi kokonattsu",
+                            "price":12000,
+                            "description":"camarones encocados.",
+                            "image":"https://i.imgur.com/CEM270s.jpg",
+                            "visibility": true
+                        },
+                        {
+                            "name":"Spring rolls",
+                            "price":8000,
+                            "description":"rollos primavera rellenos de vegetales *3.",
+                            "image":"https://i.imgur.com/CEM270s.jpg",
+                            "visibility": true
                         }
-                    ]
+                    ]	
                 } 
             ],
-          
+
             pedidoActual: {
                 items: []
             }
