@@ -3,7 +3,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor'
 import PropTypes from "prop-types";
 import { Roles } from 'meteor/alanning:roles';
-import { FormControl, FormGroup, ControlLabel, Button } from "react-bootstrap";
+import { FormControl, FormGroup, ControlLabel, Button, Grid, Row, Col } from "react-bootstrap";
 
 
 export default class MenuItem extends React.Component {
@@ -39,39 +39,47 @@ export default class MenuItem extends React.Component {
 
         return (
             <li>
-                <img src={this.props.item.image} alt="foto del plato" />
-                <div className="item_info">
-                    <h3 className="item_name"> {this.props.item.name} </h3>
-                    <p className="item_desc" style={styleDescrip}> {this.props.item.description} </p>
-
-                    {Meteor.user() ?
-                        <form onSubmit={this.onHandleSubmit.bind(this)}>
-                            <FormGroup >
-                                <Button type="submit" bsSize="large" block>Agregar a Pedido</Button>
-                            </FormGroup>
-                        </form>
-                        :
-                        null
-                    }
-                    {Roles.userIsInRole(Meteor.userId(), "admin") ?
-                        <form>
-                            <ControlLabel>Seleccionar Visibilidad</ControlLabel>
-                            <FormControl 
-                                componentClass="select" 
-                                value={this.props.item.visibility}
-                                onChange={this.onHandleVisibilityChange.bind(this)} 
-                                placeholder="select"
-                            >
-                                <option value={true}>Visible</option>
-                                <option value={false}>Oculto</option>
-                            </FormControl>
-                        </form>
-                        :
-                        null
-                    }
-                </div>
-                <h4 className="price"> $ {this.props.item.price} </h4>
-                <span className="separator"></span>
+                <Grid fluid>
+                    <Row>
+                        <Col sm={2}>
+                            <img src={this.props.item.image} alt="foto del plato" />
+                        </Col>
+                        <Col sm={8}>
+                            <div className="item_info">
+                                <h3 className="item_name"> {this.props.item.name} </h3>
+                                <p className="item_desc" style={styleDescrip}> {this.props.item.description} </p>
+                            </div>
+                            {Meteor.user() ?
+                                <form onSubmit={this.onHandleSubmit.bind(this)}>
+                                    <FormGroup >
+                                        <Button type="submit" bsSize="large" >Agregar a Pedido</Button>
+                                    </FormGroup>
+                                </form>
+                                :
+                                null
+                            }
+                            {Roles.userIsInRole(Meteor.userId(), "admin") ?
+                                <form>
+                                    <ControlLabel>Seleccionar Visibilidad</ControlLabel>
+                                    <FormControl 
+                                        componentClass="select" 
+                                        value={this.props.item.visibility}
+                                        onChange={this.onHandleVisibilityChange.bind(this)} 
+                                        placeholder="select"
+                                    >
+                                        <option value={true}>Visible</option>
+                                        <option value={false}>Oculto</option>
+                                    </FormControl>
+                                </form>
+                                :
+                                null
+                            }
+                        </Col>
+                        <Col sm={2}>
+                            <h4 className="price"> $ {this.props.item.price} </h4>
+                        </Col>
+                    </Row>
+                </Grid>
             </li>
         )
     }
