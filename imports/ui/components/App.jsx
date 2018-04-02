@@ -16,67 +16,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            menus:[ 
-                {
-                    category: "entradas", 
-                    menuItems: 
-                    [	 
-                        {
-                            "name":"Ika furai",
-                            "price":9000,
-                            "description":"calamar apanado con salsa de maracuyá.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-			     
-                        },
-                        {
-                            "name":"Ebi kokonattsu",
-                            "price":12000,
-                            "description":"camarones encocados.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        },
-                        {
-                            "name":"Spring rolls",
-                            "price":8000,
-                            "description":"rollos primavera rellenos de vegetales *3.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        }
-                    ]	
-                },
-                {
-                    category: "sushi", 
-                    menuItems: 
-                    [	 
-                        {
-                            "name":"Ika furai",
-                            "price":9000,
-                            "description":"calamar apanado con salsa de maracuyá.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-			     
-                        },
-                        {
-                            "name":"Ebi kokonattsu",
-                            "price":12000,
-                            "description":"camarones encocados.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        },
-                        {
-                            "name":"Spring rolls",
-                            "price":8000,
-                            "description":"rollos primavera rellenos de vegetales *3.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        }
-                    ]	
-                } 
-            ],
-
+            
             pedidoActual: {
-                items: []
+            items: []
             }
         }
 

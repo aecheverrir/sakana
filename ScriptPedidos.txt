@@ -1,0 +1,56 @@
+pedidos:[ 
+    {
+        owner: 1234, 
+        address: "Calle 10 #12 - 21"
+        pedidoState: "Procesando Solicitud"
+        creationDate: new Date()
+        comments: "sin salsa"
+        price: 29000
+        items:
+        [	 
+            {
+                "name":"Ika furai",
+                "price":9000,
+                "description":"calamar apanado con salsa de maracuyá."
+        
+            },
+            {
+                "name":"Ebi kokonattsu",
+                "price":12000,
+                "description":"camarones encocados.",
+            },
+            {
+                "name":"Spring rolls",
+                "price":8000,
+                "description":"rollos primavera rellenos de vegetales *3.",
+            }
+        ]	
+    },
+    {
+        owner: 1234, 
+        address: "Calle 10 #12 - 21"
+        pedidoState: "Procesando Solicitud"
+        creationDate: new Date()
+        comments: "con salsa teriyaki"
+        price: 29000
+        items:
+        [	 
+            {
+                "name":"Ika furai",
+                "price":9000,
+                "description":"calamar apanado con salsa de maracuyá."
+        
+            },
+            {
+                "name":"Ebi kokonattsu",
+                "price":12000,
+                "description":"camarones encocados.",
+            },
+            {
+                "name":"Spring rolls",
+                "price":8000,
+                "description":"rollos primavera rellenos de vegetales *3.",
+            }
+        ]
+    }
+]
