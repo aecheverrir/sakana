@@ -4,6 +4,7 @@ import { check } from "meteor/check";
 import { Match } from 'meteor/check';
 import { Roles } from 'meteor/alanning:roles';
 import SimpleSchema from "simpl-schema";
+import Menu from "../ui/components/Menu";
 
 export const Menus = new Mongo.Collection("menus");
 
@@ -26,11 +27,13 @@ const MenusSchema = new SimpleSchema({
 
 
 Menus.attachSchema(MenusSchema);
-
-if(Meteor.isServer){
-
-}
 */
+
+if (Meteor.isServer) {
+  Meteor.publish("menus", function menuPublication( ) {
+    return Menus.find( );
+  });
+}
 
 Meteor.methods({
   "menus.insert"(MenuCollect) {
@@ -39,9 +42,9 @@ Meteor.methods({
       menuItems: Match.Any
     });
 
-    console.log("UserId: " + this.userId);
-    //!Roles.userIsInRole(this.userId, "admin")
-    if (!this.userId) {
+    console.log("ID por alla: " + this.userId)
+
+    if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
       throw new Meteor.Error('not-authorized');
     }
     else if (MenuCollect.menuItems.length == 0) {
@@ -61,7 +64,7 @@ Meteor.methods({
   "menus.remove"(_id) {
     console.log(_id);
     check(_id, Match.Any);
-    if (!this.userId) {
+    if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
       throw new Meteor.Error('not-authorized: Only Administrators');
     }
     Menus.remove(_id);
@@ -73,6 +76,10 @@ Meteor.methods({
     check(itemName, String);
     check(setVisibility, Boolean);
     
+    if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
+      throw new Meteor.Error('not-authorized: Only Administrators');
+    }
+
     Menus.update({
       $and: [
         { _id: _id },
