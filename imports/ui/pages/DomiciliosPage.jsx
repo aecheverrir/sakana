@@ -17,6 +17,7 @@ export default class DomiciliosPage extends React.Component{
                     onCreatePedido={this.props.onCreatePedido}
                     pedidoActual={this.props.pedidoActual}
                     onSetStatePedido={this.props.onSetStatePedido}
+                    removePedido={this.props.removePedido}
                 />
             </div>
         )

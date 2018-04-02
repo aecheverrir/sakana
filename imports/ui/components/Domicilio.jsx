@@ -121,6 +121,7 @@ export default class Hero extends React.Component{
                                 indice={i} 
                                 pedido={p}
                                 onSetStatePedido={this.props.onSetStatePedido}
+                                removePedido={this.props.removePedido}
                             />
                         )
                     }

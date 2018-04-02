@@ -36,7 +36,7 @@ export default class MainView extends Component {
               } />
               <Route path="/domicilios" 
                 render={
-                  (props) => <DomiciliosPage {...props} pedidos={this.props.pedidos} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} onSetStatePedido={this.props.onSetStatePedido} />
+                  (props) => <DomiciliosPage {...props} pedidos={this.props.pedidos} removePedido={this.props.removePedido} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} onSetStatePedido={this.props.onSetStatePedido} />
               } />
               <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
               <Route path="/signup" render={(props) => <RegistrationForm {...props} isLogin={false} />} />

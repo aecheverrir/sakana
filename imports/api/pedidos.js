@@ -77,7 +77,7 @@ Meteor.methods({
   "pedidos.remove"(_id, pedidoState) {
     check(_id, Match.Any);
     check(pedidoState, String);
-    if (!this.userId || (pedidoCollect.owner !== this.userId)) {
+    if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
     if (pedidoState !== "Pedido recibido"){

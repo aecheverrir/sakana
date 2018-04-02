@@ -68,6 +68,10 @@ class App extends Component {
         Meteor.call("pedidos.setState", _id, owner, estado);
     };
 
+    removePedido = (_id,estado) => {
+        Meteor.call("pedidos.remove", _id, estado);
+    }
+
     onSignOut = () => {
         if (Meteor.user()) {
             Meteor.logout((e) => {
@@ -124,6 +128,7 @@ class App extends Component {
                     onCreatePedido={this.onCreatePedido.bind(this)}
                     onSetStatePedido={this.onSetStatePedido.bind(this)}
                     pedidoActual={this.state.pedidoActual}
+                    removePedido={this.removePedido.bind(this)}
                 />
             </div>
         )

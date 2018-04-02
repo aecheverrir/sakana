@@ -1,6 +1,6 @@
 import React from 'react';
 import { Roles } from 'meteor/alanning:roles';
-import { Grid, Row, Col, Panel, ListGroup, ListGroupItem, ControlLabel, FormControl } from "react-bootstrap";
+import { Grid, Row, Col, Panel, ListGroup, ListGroupItem, ControlLabel, FormControl, FormGroup, Button } from "react-bootstrap";
 
 export default class DomicilioItem extends React.Component {
     constructor() {
@@ -14,6 +14,12 @@ export default class DomicilioItem extends React.Component {
         let owner = this.props.pedido.owner;
         this.props.onSetStatePedido(_id, owner, estado);
     };
+    
+    onCancelPedido = (event) =>{
+        event.preventDefault();
+
+        this.props.removePedido(this.props.pedido._id, this.props.pedido.pedidoState);
+    }
 
 
     render() {
@@ -31,9 +37,18 @@ export default class DomicilioItem extends React.Component {
                 <ListGroup>
                     <ListGroupItem bsStyle="info">
                         {!Roles.userIsInRole(Meteor.userId(), "admin") ?
-                            <div>
-                                <h4>Estado: '{this.props.pedido.pedidoState}'</h4>
-                            </div>
+                            <Row>
+                                <Col xs={12} md={4} >
+                                    <form onSubmit={this.onCancelPedido.bind(this)} >
+                                        <FormGroup controlId="submit-Cancelacion">
+                                            <Button type="submit" block>Cancelar Pedido</Button>
+                                        </FormGroup>
+                                    </form>
+                                </Col>
+                                <Col xs={12} md={8} >
+                                    <h4>Estado: '{this.props.pedido.pedidoState}'</h4>
+                                </Col>
+                            </Row>
                             :
                             <form>
                                 <ControlLabel>Seleccionar Estado del Pedido</ControlLabel>
