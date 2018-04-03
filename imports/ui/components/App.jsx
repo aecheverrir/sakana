@@ -85,21 +85,7 @@ class App extends Component {
         }
     };
 
-    addMenu = () => {
-        let algoo = {
-            category: "Arroz",
-            menuItems: [
-                {
-                    name: "arrocito",
-                    description: "es arroz",
-                    image: "arroz con algo",
-                    price: 25000,
 
-                }
-            ]
-        };
-        Meteor.call("menus.insert", algoo)
-    };
 
     deleteMenu = () => {
         let idMenu = this.props.menus[0]._id;
