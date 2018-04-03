@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles';
 import { Grid, Row, Col, Panel, ListGroup, ListGroupItem, ControlLabel, FormControl, FormGroup, Button } from "react-bootstrap";
 
