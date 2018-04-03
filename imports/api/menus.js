@@ -7,7 +7,7 @@ import SimpleSchema from "simpl-schema";
 import Menu from "../ui/components/Menu";
 
 export const Menus = new Mongo.Collection("menus");
-
+//Si no utilizan esto deberían quitarlo!
 /*
 const MenusSchema = new SimpleSchema({
   category: {
@@ -69,6 +69,7 @@ Meteor.methods({
     }
     Menus.remove(_id);
     console.log("removed!")
+    //También seria chevere que quitaran los logs.
   },
   
   "menus.setVisibility"(_id, itemName, setVisibility) {
