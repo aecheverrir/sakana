@@ -212,7 +212,7 @@ export default class RegistrationForm extends Component {
                 null
               }
               <FormGroup controlId="submit-Ingreso">
-                <Button type="submit" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
+                <Button type="submit" color="danger" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
               </FormGroup>
             </form>
           </Col>
