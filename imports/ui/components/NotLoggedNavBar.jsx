@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
-import { Image, Nav, Navbar, NavItem, Button, ButtonGroup, NavDropdown, MenuItem } from "react-bootstrap";
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 
 import PropTypes from "prop-types";
 
 export default class NavigationBar extends Component {
-
-  constructor(props) {
+  constructor (props) {
     super(props);
   }
 
-  render() {
+  render () {
     return (
       <Navbar collapseOnSelect fixedTop>
         <Navbar.Header>
@@ -40,8 +39,7 @@ export default class NavigationBar extends Component {
               <LinkContainer to="/signup">
                 <NavItem >Registrarse</NavItem>
               </LinkContainer>
-            </Nav>
-            :
+            </Nav> :
             <Nav pullRight>
               {/*Lista de los domicilios/pedidos del cliente*/}
               <LinkContainer to="/domicilios">
@@ -51,7 +49,7 @@ export default class NavigationBar extends Component {
               {/*Lista con opciones del cliente*/}
               <NavDropdown title={this.props.currentUser.username} id="Dropdown-Opciones-Usuario">
                 <LinkContainer to="/changePassword">
-                <MenuItem>Cambiar Contraseña</MenuItem>
+                  <MenuItem>Cambiar Contraseña</MenuItem>
                 </LinkContainer>
                 <MenuItem divider />
                 <MenuItem onClick={this.props.onSignOut}>Logout</MenuItem>
@@ -68,9 +66,11 @@ export default class NavigationBar extends Component {
 
         </Navbar.Collapse>
       </Navbar>
-    )
+    );
   }
 }
 NavigationBar.propTypes = {
-  currentUser: PropTypes.object
-}
+  currentUser: PropTypes.object,
+  onSignOut: PropTypes.func,
+  pedidoActual: PropTypes.object
+};
