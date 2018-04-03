@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Image, Nav, Navbar, NavItem, Button, ButtonGroup, NavDropdown, MenuItem } from "react-bootstrap";
 
 import PropTypes from "prop-types";
-
+// Podŕian arreglar un poco los colores para que se vea mejor el contraste.
 export default class NavigationBar extends Component {
 
   constructor(props) {
