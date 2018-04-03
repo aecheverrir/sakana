@@ -47,7 +47,7 @@ Meteor.methods({
     if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
       throw new Meteor.Error('not-authorized');
     }
-    else if (MenuCollect.menuItems.length == 0) {
+    else if (MenuCollect.menuItems.length === 0) {
       throw new Meteor.Error('Debe tener items!');
     }
 
