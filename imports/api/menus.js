@@ -3,8 +3,6 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 import { Match } from 'meteor/check';
 import { Roles } from 'meteor/alanning:roles';
-import SimpleSchema from "simpl-schema";
-import Menu from "../ui/components/Menu";
 
 export const Menus = new Mongo.Collection("menus");
 
