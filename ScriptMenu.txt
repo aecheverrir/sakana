@@ -1,7 +1,7 @@
 menus:[ 
                 {
-                    category: "entradas", 
-                    menuItems: 
+                    "category": "entradas", 
+                    "menuItems": 
                     [	 
                         {
                             "name":"Ika furai",
@@ -28,8 +28,8 @@ menus:[
                     ]	
                 },
                 {
-                    category: "arroces", 
-                    menuItems: 
+                    "category": "arroces", 
+                    "menuItems": 
                     [	 
                         {
                             "name":"Rois",
@@ -56,8 +56,8 @@ menus:[
                     ]	
                 },
                 {
-                    category: "yakisoba", 
-                    menuItems: 
+                    "category": "yakisoba", 
+                    "menuItems": 
                     [	 
                         {
                             "name":"Vegetariana",
@@ -84,8 +84,8 @@ menus:[
                     ]	
                 },
                 {
-                    category: "ramen", 
-                    menuItems: 
+                    "category": "ramen", 
+                    "menuItems": 
                     [	 
                         {
                             "name":"Cerdo tradicional",

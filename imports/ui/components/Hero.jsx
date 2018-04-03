@@ -10,8 +10,10 @@ export default class Hero extends React.Component{
 
     render(){
         return(
-            <section className="hero">
-            </section> 
+            <div>
+                <section className="hero">
+                </section> 
+            </div>
         )
     }
 }

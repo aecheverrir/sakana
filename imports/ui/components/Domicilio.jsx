@@ -99,7 +99,7 @@ export default class Hero extends React.Component{
                                     null
                                 }
                                 <FormGroup controlId="domicilioCrear">
-                                    <Button type="submit" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Registrarse"}</Button>
+                                    <Button type="submit" bsSize="large" block>{this.props.isLogin ? "Ingresar" : "Hacer Pedido"}</Button>
                                 </FormGroup>
 
                             </form>
