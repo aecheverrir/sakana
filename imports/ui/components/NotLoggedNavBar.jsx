@@ -62,7 +62,7 @@ export default class NavigationBar extends Component {
           <Nav pullRight>
             {/*Lista de los menus*/}
             <LinkContainer to="/menus">
-              <NavItem >Menus</NavItem>
+              <NavItem >Menu</NavItem>
             </LinkContainer>
           </Nav>
 

@@ -1,101 +1,148 @@
 menus:[ 
+        {
+            "category": "entradas", 
+            "menuItems": 
+            [	 
                 {
-                    "category": "entradas", 
-                    "menuItems": 
-                    [	 
-                        {
-                            "name":"Ika furai",
-                            "price":9000,
-                            "description":"calamar apanado con salsa de maracuyá.",
-			                "image":"https://i.imgur.com/CEM270s.jpg",
-			                "visibility": true
-			     
-                        },
-                        {
-                            "name":"Ebi kokonattsu",
-                            "price":12000,
-                            "description":"camarones encocados.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        },
-                        {
-                            "name":"Spring rolls",
-                            "price":8000,
-                            "description":"rollos primavera rellenos de vegetales *3.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        }
-                    ]	
+                    "name":"Ika furai",
+                    "price":9000,
+                    "description":"calamar apanado con salsa de maracuyá.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+            
                 },
                 {
-                    "category": "arroces", 
-                    "menuItems": 
-                    [	 
-                        {
-                            "name":"Rois",
-                            "price":23000,
-                            "description":"saltado de lomo de res con vegetales(cebolla, puero, guidilla, tomate) bañado en salsa hoisin, acompañado de gohan (arroz blaco al estilo japonés).",
-			                "image":"https://i.imgur.com/CEM270s.jpg",
-			                "visibility": true
-			     
-                        },
-                        {
-                            "name":"Shi fu do",
-                            "price":25000,
-                            "description":"frutos del mar al wok, servidos entre un arroz caldoso con vegetales.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        },
-                        {
-                            "name":"Chikin lomitos",
-                            "price":22000,
-                            "description":"lomitos de pechuga adobados en curry amarillo saltados al wok con vegetales y arroz.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        }
-                    ]	
+                    "name":"Ebi kokonattsu",
+                    "price":12000,
+                    "description":"camarones encocados.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
                 },
                 {
-                    "category": "yakisoba", 
-                    "menuItems": 
-                    [	 
-                        {
-                            "name":"Vegetariana",
-                            "price":20000,
-                            "description":"fideos de arroz al wok con vegetales (mazorquitas,guindillas,zanahoria,cebolla).",
-			                "image":"https://i.imgur.com/CEM270s.jpg",
-			                "visibility": true
-			     
-                        },
-                        {
-                            "name":"Sakana",
-                            "price":25000,
-                            "description":"fideos de arroz caldosos acompañados de salmon y pescado blanco en trozos.",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        },
-                        {
-                            "name":"Chikin lomitos",
-                            "price":22000,
-                            "description":"fideos de arroz al limon salteado con camarones y calamar",
-                            "image":"https://i.imgur.com/CEM270s.jpg",
-                            "visibility": true
-                        }
-                    ]	
-                },
-                {
-                    "category": "ramen", 
-                    "menuItems": 
-                    [	 
-                        {
-                            "name":"Cerdo tradicional",
-                            "price":18000,
-                            "description":"caldo de cerdo servido con fideos, cebolla verde y huevos.",
-			                "image":"https://i.imgur.com/CEM270s.jpg",
-			                "visibility": true
-                        }
-                    ]	
+                    "name":"Spring rolls",
+                    "price":8000,
+                    "description":"rollos primavera rellenos de vegetales *3.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
                 }
+            ]	
+        },
+        {
+            "category": "arroces", 
+            "menuItems": 
+            [	 
+                {
+                    "name":"Rois",
+                    "price":23000,
+                    "description":"saltado de lomo de res con vegetales(cebolla, puero, guidilla, tomate) bañado en salsa hoisin, acompañado de gohan (arroz blaco al estilo japonés).",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+            
+                },
+                {
+                    "name":"Shi fu do",
+                    "price":25000,
+                    "description":"frutos del mar al wok, servidos entre un arroz caldoso con vegetales.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+                },
+                {
+                    "name":"Chikin lomitos",
+                    "price":22000,
+                    "description":"lomitos de pechuga adobados en curry amarillo saltados al wok con vegetales y arroz.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+                }
+            ]	
+        },
+        {
+            "category": "yakisoba", 
+            "menuItems": 
+            [	 
+                {
+                    "name":"Vegetariana",
+                    "price":20000,
+                    "description":"fideos de arroz al wok con vegetales (mazorquitas,guindillas,zanahoria,cebolla).",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+            
+                },
+                {
+                    "name":"Sakana",
+                    "price":25000,
+                    "description":"fideos de arroz caldosos acompañados de salmon y pescado blanco en trozos.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+                },
+                {
+                    "name":"Chikin lomitos",
+                    "price":22000,
+                    "description":"fideos de arroz al limon salteado con camarones y calamar",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+                }
+            ]	
+        },
+        {
+            "category": "ramen", 
+            "menuItems": 
+            [	 
+                {
+                    "name":"Cerdo tradicional",
+                    "price":18000,
+                    "description":"caldo de cerdo servido con fideos, cebolla verde y huevos.",
+                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "visibility": true
+                }
+            ]	
+        },
+        {
+            "category": "sushi",
+            "menuItems": [
+                {
+                    "name": "Amari",
+                    "price": 18000,
+                    "description": "Ajonjli, kanamita (palmito de mar), aguacate, platano, queso crema.",
+                    "image": "https://i.imgur.com/d8elbmq.jpg",
+                    "visibility": true
+                },
+                {
+                    "name": "Tako maki",
+                    "price": 20000,
+                    "description": "Perejil, pulpo,zanahoria tempura, pepino, kewpi (mayonesa japonesa).",
+                    "image": "https://i.imgur.com/wKJpiVu.jpg",
+                    "visibility": true
+                },
+                {
+                    "name": "Anguila tropical",
+                    "price": 25000,
+                    "description": "Masago, anguila, mango, pepino, queso crema.",
+                    "image": "https://i.imgur.com/jUVoWQt.jpg",
+                    "visibility": true
+                },
+                {
+                    "name": "Dinamita",
+                    "price": 25000,
+                    "description": "Salsa dinamita, langostino tempura, esparrago, queso crema.",
+                    "image": "https://i.imgur.com/5tWE3iR.jpg",
+                    "visibility": true
+                },
+                {
+                    "name": "Ojo e' tigre",
+                    "price": 28000,
+                    "description": "Salmon, palmito, atun tempura, aguacate, masago.",
+                    "image": "https://i.imgur.com/Xp8CxRM.jpg",
+                    "visibility": true
+                },
+                {
+                    "name": "Ebi",
+                    "price": 23000,
+                    "description": "Langostino, palmito de chontaduro, aguacate, queso crema.",
+                    "image": "https://i.imgur.com/75DWxO2.jpg",
+                    "visibility": true
+                }
+            ]
+        }
 ]
 
 
