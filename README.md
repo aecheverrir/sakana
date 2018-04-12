@@ -28,12 +28,12 @@
 - clone the repo on your console, instructions [below](#clone)
 - use `cd sakana` to enter the main folder
 - use `npm install` to install npm dependencies
+- use `meteor` to run the server locally at port you defined or otherwise it's port 3000 (mongo will run in the next port, 3001 in this case)
 - follow [setup](#setup) guide
-- use `meteor` to run the server locally at port you defined or otherwise it's port 3000
 
 ## Setup
-- Go to server
-- Then ...
+- use `meteor mongo` to open mongo console.
+- you can now add new dishes using the mongo console! Use the same format you can find at "ScriptMenu.txt" which uses the current schema for menus in the database. At the end of the file you can find 3 insert examples you can use to populate the database.
 
 
 ## Clone
@@ -52,7 +52,7 @@
 
 ## Visit
 
-Currently deployed with heroku: <a href="" target="_blank">**Sakana Sushi Fusion**</a>
+Currently deployed with heroku: <a href="https://sakanasushifusion.herokuapp.com" target="_blank">**Sakana Sushi Fusion**</a>
 
 ---
 
