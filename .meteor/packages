@@ -23,3 +23,7 @@ accounts-ui
 react-meteor-data
 accounts-password
 alanning:roles
+practicalmeteor:mocha
+xolvio:cleaner
+dburles:factory
+cultofcoders:mocha

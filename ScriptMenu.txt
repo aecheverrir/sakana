@@ -7,7 +7,7 @@ menus:[
                     "name":"Ika furai",
                     "price":9000,
                     "description":"calamar apanado con salsa de maracuyá.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
             
                 },
@@ -15,14 +15,14 @@ menus:[
                     "name":"Ebi kokonattsu",
                     "price":12000,
                     "description":"camarones encocados.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 },
                 {
                     "name":"Spring rolls",
                     "price":8000,
                     "description":"rollos primavera rellenos de vegetales *3.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 }
             ]	
@@ -35,7 +35,7 @@ menus:[
                     "name":"Rois",
                     "price":23000,
                     "description":"saltado de lomo de res con vegetales(cebolla, puero, guidilla, tomate) bañado en salsa hoisin, acompañado de gohan (arroz blaco al estilo japonés).",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
             
                 },
@@ -43,14 +43,14 @@ menus:[
                     "name":"Shi fu do",
                     "price":25000,
                     "description":"frutos del mar al wok, servidos entre un arroz caldoso con vegetales.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 },
                 {
                     "name":"Chikin lomitos",
                     "price":22000,
                     "description":"lomitos de pechuga adobados en curry amarillo saltados al wok con vegetales y arroz.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 }
             ]	
@@ -63,7 +63,7 @@ menus:[
                     "name":"Vegetariana",
                     "price":20000,
                     "description":"fideos de arroz al wok con vegetales (mazorquitas,guindillas,zanahoria,cebolla).",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
             
                 },
@@ -71,14 +71,14 @@ menus:[
                     "name":"Sakana",
                     "price":25000,
                     "description":"fideos de arroz caldosos acompañados de salmon y pescado blanco en trozos.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 },
                 {
                     "name":"Chikin lomitos",
                     "price":22000,
                     "description":"fideos de arroz al limon salteado con camarones y calamar",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 }
             ]	
@@ -91,7 +91,7 @@ menus:[
                     "name":"Cerdo tradicional",
                     "price":18000,
                     "description":"caldo de cerdo servido con fideos, cebolla verde y huevos.",
-                    "image":"https://i.imgur.com/CEM270s.jpg",
+                    "image":"https://i.imgur.com/bDduPf6.jpg",
                     "visibility": true
                 }
             ]	
