@@ -411,10 +411,10 @@ header nav ul li a:hover{
     background: url('../img/top_arrow.png');
 }
 
-
-
-
-
+.domicilioTotal {
+    font-weight: bold;
+    color: black;
+}
 
 
 

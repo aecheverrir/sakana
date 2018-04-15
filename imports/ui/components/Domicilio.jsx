@@ -113,8 +113,7 @@ export default class Hero extends React.Component{
                                 return <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}: ${p.price}</h4> {p.description} </ListGroupItem>
                                 }  
                             )}
-
-                            <ListGroupItem> <h4> Total: ${total}</h4> </ListGroupItem>
+                            <ListGroupItem> <h4 className="domicilioTotal"> Total: ${total}</h4> </ListGroupItem>
                         </ListGroup>
                     </Panel>
                 </PanelGroup>
