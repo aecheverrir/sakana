@@ -30,19 +30,19 @@ export default class MainView extends Component {
         <Row>
           <Col sm={12}>
             <Switch>
-              <Route exact path="/" render={(props) => <HomePage {...props} />} />
-              <Route path="/menus" 
+              <Route exact path="/" name="Home" render={(props) => <HomePage {...props} />} />
+              <Route path="/menus" name="Menu" 
                 render={
                   (props) => <MenuPage {...props} updateMenu={this.props.updateMenu} onAddToPedidoActual={this.props.onAddToPedidoActual} currentUser={this.props.currentUser} menus={this.props.menus}/>
               } />
-              <Route path="/domicilios" 
+              <Route path="/domicilios" name="Domicilio"
                 render={
                   (props) => <DomiciliosPage {...props} pedidos={this.props.pedidos} removePedido={this.props.removePedido} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} onSetStatePedido={this.props.onSetStatePedido} />
               } />
-              <Route path="/login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
-              <Route path="/signup" render={(props) => <RegistrationForm {...props} isLogin={false} />} />
-              <Route path="/adminSignUp" render={(props) => <RegistrationAdmin {...props} />} />
-              <Route path="/changePassword" render={(props) => <ChangeProfileDataForm {...props} />} />
+              <Route path="/login" name="Login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
+              <Route path="/signup" name="SignUp" render={(props) => <RegistrationForm {...props} isLogin={false} />} />
+              <Route path="/adminSignUp" name="AdminSignUp" render={(props) => <RegistrationAdmin {...props} />} />
+              <Route path="/changePassword" name="ChangePassword" render={(props) => <ChangeProfileDataForm {...props} />} />
             </Switch>
           </Col>
         </Row>
