@@ -195,9 +195,7 @@ header nav ul li a:hover{
 /*    hero    */
 .hero{
     width: 100%;
-    height: 570px;
-    position: relative;
-    background: url('https://i.imgur.com/uRYQaOB.jpg') no-repeat;     
+    position: relative;     
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -622,6 +620,11 @@ footer .adress{
     line-height: 32px;
     font-weight: normal;
     letter-spacing: 1px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    float: left;
+    
 }
 
 footer .adress .location{
@@ -658,8 +661,13 @@ footer .footer_nav ul li a:hover{
     border-bottom: 2px solid #FFF;
 }
 
+footer .copyrights{
+    padding-top: 20px;
+}
+
 footer .copyrights .footer_logo{
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+    margin-left: 15px;
 }
 
 footer .copyrights p{
@@ -669,6 +677,7 @@ footer .copyrights p{
     font-weight: lighter;
     line-height: 32px;
     letter-spacing: 1px;
+    padding-left: 15px;
 }
 
 footer .copyrights p a{

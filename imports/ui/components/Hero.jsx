@@ -12,6 +12,7 @@ export default class Hero extends React.Component{
         return(
             <div>
                 <section className="hero">
+                    <img src="https://i.imgur.com/uRYQaOB.jpg" alt="main page hero image " title=""/>
                 </section> 
             </div>
         )
