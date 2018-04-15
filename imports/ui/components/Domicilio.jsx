@@ -120,13 +120,16 @@ export default class Hero extends React.Component{
                 <PanelGroup defaultActiveKey="eventKey1" id="accordion-controlled-Domicilios">
                     {
                         this.props.pedidos.map((p, i) =>
-                            <DomicilioItem 
-                                key={p._id} 
-                                indice={i} 
-                                pedido={p}
-                                onSetStatePedido={this.props.onSetStatePedido}
-                                removePedido={this.props.removePedido}
-                            />
+                            <div>
+                                <br />
+                                <DomicilioItem 
+                                    key={p._id} 
+                                    indice={i} 
+                                    pedido={p}
+                                    onSetStatePedido={this.props.onSetStatePedido}
+                                    removePedido={this.props.removePedido}
+                                />
+                            </div>
                         )
                     }
                 </PanelGroup>
