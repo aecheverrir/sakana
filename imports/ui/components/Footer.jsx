@@ -11,8 +11,8 @@ export default class Hero extends React.Component{
 
     render(){
         return(
-            <Grid fluid>
-                <footer>
+            <footer>
+                <Grid fluid>
                     <div className="wrapper">
                         <Row>
                             <Col sm={3}>
@@ -41,8 +41,8 @@ export default class Hero extends React.Component{
                             </Col>
                         </Row>
                     </div>
-                </footer>
-            </Grid>
+                </Grid>
+            </footer>
         )
     }
 }
