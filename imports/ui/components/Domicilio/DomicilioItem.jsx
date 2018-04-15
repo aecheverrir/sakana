@@ -23,6 +23,7 @@ export default class DomicilioItem extends React.Component {
 
 
     render() {
+        var total = 0;
         return (
             <Panel eventKey={"eventKey" + this.props.indice}>
                 <Panel.Heading>
@@ -67,9 +68,12 @@ export default class DomicilioItem extends React.Component {
                         }
 
                     </ListGroupItem>
-                    {this.props.pedido.items.map((p, i) =>
-                        <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}:${p.price}</h4> {p.description} </ListGroupItem>
+                    {this.props.pedido.items.map(function pedidos(p, i){
+                        total = total + p.price;
+                        return <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}: ${p.price}</h4> {p.description} </ListGroupItem>
+                        }  
                     )}
+                    <ListGroupItem> <h4> Total: ${total}</h4> </ListGroupItem>
                 </ListGroup>
             </Panel>
         )

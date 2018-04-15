@@ -67,6 +67,8 @@ export default class Hero extends React.Component{
             "color": "#000000"
         };
 
+        var total = 0;
+
         return(
             <Grid>
                 <PanelGroup accordion id="accordion-controlled-Domicilios">
@@ -106,10 +108,13 @@ export default class Hero extends React.Component{
                         </Panel.Body>
 
                         <ListGroup>
-                            
-                            {this.props.pedidoActual.items.map((p, i) =>
-                                <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}:${p.price}</h4> {p.description} </ListGroupItem>
+                            {this.props.pedidoActual.items.map(function pedidos(p, i){
+                                total = total + p.price;
+                                return <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}: ${p.price}</h4> {p.description} </ListGroupItem>
+                                }  
                             )}
+
+                            <ListGroupItem> <h4> Total: ${total}</h4> </ListGroupItem>
                         </ListGroup>
                     </Panel>
                 </PanelGroup>
