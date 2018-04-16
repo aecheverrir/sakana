@@ -686,3 +686,7 @@ footer .copyrights p a{
     color: #ffffff;
     text-decoration: none;
 }
+
+.pointer {
+    cursor: pointer;
+}

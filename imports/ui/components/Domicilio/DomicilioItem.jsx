@@ -1,11 +1,13 @@
 import React from 'react';
 import { Roles } from 'meteor/alanning:roles';
-import { Grid, Row, Col, Panel, ListGroup, ListGroupItem, ControlLabel, FormControl, FormGroup, Button } from "react-bootstrap";
+import { Grid, Row, Col, Panel,  Label , Button } from "react-bootstrap";
+import PropTypes from "prop-types";
+import Moment from "react-moment"
 
 export default class DomicilioItem extends React.Component {
     constructor() {
         super();
-
+        this.setDomicilioDetail = this.setDomicilioDetail.bind(this);
     }
 
     onHandleStateChange = (event) => {
@@ -13,71 +15,43 @@ export default class DomicilioItem extends React.Component {
         let _id = this.props.pedido._id;
         let owner = this.props.pedido.owner;
         this.props.onSetStatePedido(_id, owner, estado);
+        this.setLabelClass = this.setLabelClass.bind(this);
     };
-    
-    onCancelPedido = (event) =>{
-        event.preventDefault();
 
-        this.props.removePedido(this.props.pedido._id, this.props.pedido.pedidoState);
+    setLabelClass( ){
+        let pedidoStates = ["Pedido recibido", "Preparando Comida", "En Camino", "Entregado"];
+        let opciones = ["info", "primary", "primary", "success", "default"];
+        
+        return (pedidoStates.indexOf(this.props.pedido.pedidoState) < 0) ? 
+            opciones[4] : opciones[pedidoStates.indexOf(this.props.pedido.pedidoState)];
     }
 
+    setDomicilioDetail(){
+        this.props.setInfoDomicilioDetail(this.props.pedidoIndex);
+    }
 
     render() {
-        var total = 0;
         return (
-            <Panel eventKey={"eventKey" + this.props.indice}>
-                <Panel.Heading>
-                    <Panel.Title toggle><h3>{this.props.pedido.address}</h3></Panel.Title>
-                </Panel.Heading>
-
-                <Panel.Body collapsible>
-                    <p>Valor Total: ${this.props.pedido.price}</p>
-                    <p>Comentarios: '{this.props.pedido.comment}'</p>
-                </Panel.Body>
-
-                <ListGroup>
-                    <ListGroupItem bsStyle="info">
-                        {!Roles.userIsInRole(Meteor.userId(), "admin") ?
-                            <Row>
-                                <Col xs={12} md={4} >
-                                    <form onSubmit={this.onCancelPedido.bind(this)} >
-                                        <FormGroup controlId="submit-Cancelacion">
-                                            <Button type="submit" block>Cancelar Pedido</Button>
-                                        </FormGroup>
-                                    </form>
-                                </Col>
-                                <Col xs={12} md={8} >
-                                    <h4>Estado: '{this.props.pedido.pedidoState}'</h4>
-                                </Col>
-                            </Row>
-                            :
-                            <form>
-                                <ControlLabel>Seleccionar Estado del Pedido</ControlLabel>
-                                <FormControl
-                                    componentClass="select"
-                                    value={this.props.pedido.pedidoState}
-                                    onChange={this.onHandleStateChange.bind(this)}
-                                    placeholder="select"
-                                >
-                                    <option value={"Pedido recibido"}>Pedido recibido</option>
-                                    <option value={"Preparando Comida"}>Preparando Comida</option>
-                                    <option value={"En Camino"}>En Camino</option>
-                                    <option value={"Entregado"}>Entregado</option>
-                                </FormControl>
-                            </form>       
-                        }
-
-                    </ListGroupItem>
-                    {this.props.pedido.items.map(function pedidos(p, i){
-                        total = total + p.price;
-                        return <ListGroupItem key={p._id + "-" + i}> <h4>{p.name}: ${p.price}</h4> {p.description} </ListGroupItem>
-                        }  
-                    )}
-                    <ListGroupItem> <h4 className="domicilioTotal"> Total: ${total}</h4> </ListGroupItem>
-                </ListGroup>
-            </Panel>
+            <tr onClick={this.setDomicilioDetail}>
+                <td>{this.props.pedido._id}</td>
+                <td>{this.props.pedido.address}</td>
+                <td>
+                    <Moment format="YY/MM/DD HH:mm a">
+                        {this.props.pedido.creationDate}
+                    </Moment>
+                </td>
+                <td>
+                    <Label  bsStyle={this.setLabelClass()}>
+                        {this.props.pedido.pedidoState}
+                    </Label>
+                </td>
+            </tr>
         )
     }
 }
-
+DomicilioItem.propTypes = {
+    pedido: PropTypes.object.isRequired,
+    pedidoIndex: PropTypes.number,
+    setInfoDomicilioDetail:  PropTypes.func
+}
 
