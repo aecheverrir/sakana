@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import "../imports/api/menus.js"
-import "../imports/api/pedidos.js"
-import "../imports/api/usuarios.js"
+import "../imports/api/menus.jsx"
+import "../imports/api/pedidos.jsx"
+import "../imports/api/usuarios.jsx"
 import { WebApp } from 'meteor/webapp';
 
 WebApp.addHtmlAttributeHook(() => ({ lang: 'es' }));
