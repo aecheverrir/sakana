@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { withTracker } from 'meteor/react-meteor-data';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ReactiveVar } from 'meteor/reactive-var';
 import PropTypes from "prop-types";
 
 import { Menus } from "../../api/menus";
@@ -10,11 +11,15 @@ import { Pedidos } from "../../api/pedidos";
 import NavigationBar from "./NotLoggedNavBar";
 import MainView from "./MainView";
 
+const pedidosDateSort = new ReactiveVar({ creationDate: -1 });
+const pedidosStateFilter = new ReactiveVar({ }); 
+const pedidosPage = new ReactiveVar({currentPage: 1});
+const PEDIDOS_PER_PAGE = 5;
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
             pedidoActual: {
             items: []
             }
@@ -71,6 +76,19 @@ class App extends Component {
 
     removePedido = (_id,estado) => {
         Meteor.call("pedidos.remove", _id, estado);
+    }
+
+    onSortPedidos = (sortingElement) => {
+        pedidosDateSort.set(sortingElement);
+    }
+
+    onFilterPedidosState = (FilterElement) => {
+        pedidosStateFilter.set(FilterElement);
+    }
+
+    onChangePedidosPage = (pageNumber) =>{
+        let newPage = { currentPage: pageNumber }
+        pedidosPage.set(newPage);
     }
 
     onSignOut = () => {
@@ -130,6 +148,9 @@ class App extends Component {
                     onSetStatePedido={this.onSetStatePedido.bind(this)}
                     pedidoActual={this.state.pedidoActual}
                     removePedido={this.removePedido.bind(this)}
+                    onSortPedidos={this.onSortPedidos.bind(this)}
+                    onFilterPedidosState={this.onFilterPedidosState.bind(this)}
+                    onChangePedidosPage={this.onChangePedidosPage.bind(this)}
                 />
             </div>
         )
@@ -143,12 +164,12 @@ App.propTypes = {
 }
 
 export default withRouter(withTracker(() => {
-    Meteor.subscribe("menus");
-    Meteor.subscribe("pedidos", Meteor.userId);
 
+    Meteor.subscribe("menus");
+    Meteor.subscribe("pedidos", pedidosPage.get().currentPage, PEDIDOS_PER_PAGE);
     return {
         menus: Menus.find({}).fetch(),
-        pedidos: Pedidos.find({}).fetch(),
+        pedidos: Pedidos.find(pedidosStateFilter.get(), {sort: pedidosDateSort.get()}).fetch(),
         currentUser: Meteor.user()
     };
 })(App));

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 
-import { Image, Nav, Navbar, NavItem, Button, ButtonGroup, NavDropdown, MenuItem } from "react-bootstrap";
+import { Image, Nav, Navbar, NavItem, Button, ButtonGroup, NavDropdown, MenuItem, Glyphicon } from "react-bootstrap";
 
 import PropTypes from "prop-types";
 
@@ -23,12 +23,6 @@ export default class NavigationBar extends Component {
         </Navbar.Header>
 
         <Navbar.Collapse>
-          {/*Nav para los elementos generales de la pagina*/}
-          <Nav>
-            <LinkContainer to="/">
-              <NavItem >Home</NavItem>
-            </LinkContainer>
-          </Nav>
 
           {/*Nav para el usuario (si esta en sesion activa o no)*/}
           {!this.props.currentUser ?
@@ -45,7 +39,12 @@ export default class NavigationBar extends Component {
             <Nav pullRight>
               {/*Lista de los domicilios/pedidos del cliente*/}
               <LinkContainer to="/domicilios">
-                <NavItem >Domicilios {this.props.pedidoActual.items.length > 0 ? "(1)" : null}</NavItem>
+                <NavItem >Mis Domicilios</NavItem>
+              </LinkContainer>
+
+              {/*Carrito de compra del cliente*/}
+              <LinkContainer to="/checkoutDomicilio">
+                <NavItem ><Glyphicon glyph="shopping-cart" /> {this.props.pedidoActual.items.length > 0 ? "(1)" : null}</NavItem>
               </LinkContainer>
 
               {/*Lista con opciones del cliente*/}
@@ -56,6 +55,7 @@ export default class NavigationBar extends Component {
                 <MenuItem divider />
                 <MenuItem onClick={this.props.onSignOut}>Logout</MenuItem>
               </NavDropdown>
+              
             </Nav>
           }
 

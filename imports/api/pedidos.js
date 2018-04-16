@@ -3,10 +3,10 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 import { Match } from 'meteor/check';
 import { Roles } from 'meteor/alanning:roles';
-import SimpleSchema from "simpl-schema";
 
 export const Pedidos = new Mongo.Collection("pedidos");
 
+let posibleStates = ["Pedido recibido", "Preparando Comida", "En Camino", "Entregado"];
 /*
 const PedidosSchema = new SimpleSchema({
   owner: {
@@ -40,18 +40,20 @@ Pedidos.attachSchema(PedidosSchema);
 */
 
 if (Meteor.isServer) {
-  Meteor.publish("pedidos", function pedidosPublication(  ) {
-    
+  Meteor.publish("pedidos", function pedidosPublication( currentPage, numberElements ) {
+    let limitable = (currentPage * numberElements);
+
     if (Roles.userIsInRole(this.userId, "admin")){
       console.log("Administrator userId: " + this.userId)
-      return Pedidos.find();
+      return Pedidos.find({});
     }
     else{
-      console.log("Common userId: " + this.userId)   
+      console.log("Common userId: " + this.userId) 
       return Pedidos.find({owner:this.userId});   
     }
     
-  })
+  });
+
 }
 
 Meteor.methods({
@@ -69,7 +71,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     
-    pedidoCollect.pedidoState = "Pedido recibido";
+    pedidoCollect.pedidoState = posibleStates[0];
 
     Pedidos.insert(pedidoCollect);
   },
@@ -80,7 +82,7 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
-    if (pedidoState !== "Pedido recibido"){
+    if (pedidoState !== posibleStates[0]){
       throw new Meteor.Error('El pedido ya esta en proceso');
     }
 
@@ -94,6 +96,9 @@ Meteor.methods({
 
     if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
       throw new Meteor.Error('not-authorized');
+    }
+    else if (posibleStates.indexOf(setPedidoState) < 0){
+      throw new Meteor.Error('Invalid state modification request');
     }
 
     Pedidos.update({ _id: _id }, { $set: { pedidoState: setPedidoState } });

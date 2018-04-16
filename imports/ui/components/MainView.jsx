@@ -10,7 +10,8 @@ import DomiciliosPage from "../pages/DomiciliosPage";
 import PageNotFound from "../pages/PageNotFound";
 import RegistrationForm from "../components/Registration/RegistrationForm";
 import RegistrationAdmin from "../components/Registration/RegistrationAdmin";
-import ChangeProfileDataForm from "../components/Registration/ChangeProfileDataForm";
+import ChangeProfileDataForm from "../components/Registration/ChangeProfileDataForm";""
+import DomicilioCheckout from "./Domicilio/DomicilioCheckout";
 
 import Footer from "./Footer";
 import { WSAEADDRINUSE } from 'constants';
@@ -37,8 +38,13 @@ export default class MainView extends Component {
               } />
               <Route path="/domicilios" name="Domicilio"
                 render={
-                  (props) => <DomiciliosPage {...props} pedidos={this.props.pedidos} removePedido={this.props.removePedido} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} onSetStatePedido={this.props.onSetStatePedido} />
+                  (props) => <DomiciliosPage {...props} currentUser={this.props.currentUser} pedidos={this.props.pedidos} removePedido={this.props.removePedido} onSetStatePedido={this.props.onSetStatePedido} onSortPedidos={this.props.onSortPedidos} onFilterPedidosState={this.props.onFilterPedidosState} onChangePedidosPage={this.props.onChangePedidosPage} />
               } />
+              <Route path="/checkoutDomicilio" name="checkoutDomicilio" 
+                render={
+                  (props) => <DomicilioCheckout {...props} pedidoActual={this.props.pedidoActual} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} />
+              } />
+
               <Route path="/login" name="Login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
               <Route path="/signup" name="SignUp" render={(props) => <RegistrationForm {...props} isLogin={false} />} />
               <Route path="/adminSignUp" name="AdminSignUp" render={(props) => <RegistrationAdmin {...props} />} />
@@ -59,5 +65,7 @@ export default class MainView extends Component {
 
 MainView.propTypes = {
   menus: PropTypes.array.isRequired,
-  currentUser: PropTypes.object
+  currentUser: PropTypes.object,
+  onSortPedidos : PropTypes.func,
+  onFilterPedidosState: PropTypes.func
 }
