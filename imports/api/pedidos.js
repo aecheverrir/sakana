@@ -66,6 +66,8 @@ Meteor.methods({
       price: Number,
       items: Match.Any
     });
+    
+    //No se hace verificaciones de los valores vacios de tipo String ni se verifica que la fecha ingresada sea válida
 
     if (!this.userId || (pedidoCollect.owner !== this.userId)) {
       throw new Meteor.Error('not-authorized');
