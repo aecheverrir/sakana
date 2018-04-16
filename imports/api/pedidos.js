@@ -67,6 +67,8 @@ Meteor.methods({
       items: Match.Any
     });
 
+    //No se verifican cadenas vacias ne rangos de fechas y valores no negativos 
+    
     if (!this.userId || (pedidoCollect.owner !== this.userId)) {
       throw new Meteor.Error('not-authorized');
     }
