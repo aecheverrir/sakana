@@ -12,6 +12,7 @@
 - [Installation](#installation)
 - [Team](#team)
 - [Setup](#setup)
+- [Testing](#testing)
 - [Visit](#visit)
 - [License](#license)
 
@@ -49,6 +50,12 @@
 | [![Sakana](https://avatars3.githubusercontent.com/u/25350194?s=460&v=4)](https://github.com/aecheverrir)    | [![Sakana](https://avatars0.githubusercontent.com/u/25346635?s=460&v=4)](https://github.com/s-cortes) |
 
 ---
+
+
+## Testing
+
+In order to run testing go to the projects main folder with: `cd sakana` and then run the following command:
+meteor test --driver-package cultofcoders:mocha --port 3100
 
 ## Visit
 
