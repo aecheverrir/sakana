@@ -44,8 +44,8 @@
 
 ## Testing
 
-In order to run testing go to the projects main folder with: `cd sakana` and then run the following command:
-meteor test --driver-package cultofcoders:mocha --port 3100
+-In order to run testing go to the projects main folder with: `cd sakana` and then run the following command:
+  `meteor test --driver-package cultofcoders:mocha --port 3100`
 
 ---
 
