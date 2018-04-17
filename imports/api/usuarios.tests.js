@@ -7,11 +7,12 @@ import { Roles } from 'meteor/alanning:roles';
 if (Meteor.isServer) {
     describe('usuarios', function() {
         describe('usuarios.insert', function() {
-
+            
             let usuarioEjemplo = 
                     {
-                        name: "Nombre"     
+                        name: "Nombre" 
                     };
+
 
             it("Should insert new user with it's role", function() {
 
@@ -27,9 +28,20 @@ if (Meteor.isServer) {
                 // checks the users rol
                 assert.equal("admin", newUserUserRol);
 
-
-            });
+            }); 
 
         });
     });
 }
+
+/*
+
+Meteor.methods({
+    "users.insert"(newUser) {
+
+        let id =  Accounts.createUser(newUser);
+        Roles.addUsersToRoles(id, "admin");
+    }
+});
+
+*/

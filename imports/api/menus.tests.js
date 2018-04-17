@@ -1,12 +1,23 @@
+/*
 import { Meteor } from 'meteor/meteor';
 import { Menus } from './menus.jsx';
 import { assert } from 'meteor/practicalmeteor:chai';
+import { resetDatabase   } from "meteor/xolvio:cleaner";
+import { Factory   } from "meteor/dburles:factory";
 
 if (Meteor.isServer) {
     describe("menus", function() {
+
+        beforeEach(function() {
+            resetDatabase();
+		});
         
         describe("menus.insert", function() {
             
+            beforeEach(function() {
+                resetDatabase();
+            });
+
             let menuEjemplo = 
             {
                 category: "prueba", 
@@ -54,10 +65,12 @@ if (Meteor.isServer) {
 
         });
 
+        
         describe("menus.remove", function() {
 
             //inserts a new menu category so it can be deleted
             beforeEach( function() {
+                resetDatabase();
                 Menus.insert(
                     {
                         category: "pruebaBorrar", 
@@ -101,3 +114,5 @@ if (Meteor.isServer) {
 
     });
 }
+
+ */
