@@ -21,7 +21,7 @@ class App extends Component {
         super(props);
         this.state = {
             pedidoActual: {
-            items: []
+                items: []
             }
         }
 
