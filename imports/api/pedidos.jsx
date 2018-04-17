@@ -68,7 +68,6 @@ Meteor.methods({
     });
 
     if (!Meteor.userId() || (pedidoCollect.owner !== Meteor.userId())) {
-      console.log("Meteor UserID: " + Meteor.userId());
       throw new Meteor.Error('not-authorized');
     }
     
