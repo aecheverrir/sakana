@@ -78,7 +78,7 @@ export default class Domicilio extends React.Component{
     }
 }
 Domicilio.propTypes = {
-    pedidos: PropTypes.array.isRequired,
+    pedidos: PropTypes.array,
     removePedido: PropTypes.func,
     onSetStatePedido: PropTypes.func,
     currentUser: PropTypes.object
