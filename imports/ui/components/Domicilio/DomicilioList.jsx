@@ -66,7 +66,7 @@ export default class DomicilioList extends React.Component {
 
   verifyNext() {
     let tamanio = Math.ceil(this.props.pedidos.length / PEDIDOS_PER_PAGE);
-    return this.state.page === tamanio;
+    return (this.state.page === tamanio) || (tamanio === 0);
   }
 
   handleNextPage() {
