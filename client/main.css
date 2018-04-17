@@ -412,3 +412,17 @@ footer .copyrights p a{
 .pointer {
     cursor: pointer;
 }
+
+.info .title h3{
+    color: #ff5c5c;
+    font-family: "aleo-bold", arial;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.CheckoutItem{
+    float:left;
+}
+
