@@ -102,7 +102,7 @@ export default class DomicilioList extends React.Component {
       <div>
         <Navbar>
           <Nav>
-            <NavItem disabled>Ordenar por</NavItem>
+          <NavItem disabled> <a style={{color:"#777"}}>Ordenar por:</a> </NavItem>
             <NavDropdown eventKey={1} onSelect={this.handleSortingChange}
               title={this.handleSortingName()}
               id="basic-nav-dropdown">
@@ -110,7 +110,7 @@ export default class DomicilioList extends React.Component {
               <MenuItem eventKey={1}>Fecha (más antiguo)</MenuItem>
             </NavDropdown>
 
-            <NavItem disabled>Mostrar</NavItem>
+            <NavItem disabled> <a style={{color:"#777"}}>Mostrar:</a> </NavItem>
             <NavDropdown eventKey={2} onSelect={this.handleListVisualization}
               title={this.handleFilterName()}
               id="basic-nav-dropdown">

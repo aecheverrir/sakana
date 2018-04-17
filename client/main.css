@@ -419,5 +419,10 @@ footer .copyrights p a{
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
-    margin: 0;
+    margin-bottom: 10px;
 }
+
+.CheckoutItem{
+    float:left;
+}
+

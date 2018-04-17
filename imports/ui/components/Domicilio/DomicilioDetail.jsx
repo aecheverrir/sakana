@@ -54,9 +54,9 @@ export default class DomicilioDetail extends React.Component {
     render() {
         return (
             <div >
-                <PageHeader className="text-right">
+                <h2 className="text-right" >
                     Tu Pedido
-                </PageHeader>
+                </h2>
                 {
                     this.props.pedido.items ?
                         <Row>

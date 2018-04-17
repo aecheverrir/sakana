@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
+import { NavLink } from 'react-router-dom';
 
 import { Image, Nav, Navbar, NavItem, Button, ButtonGroup, NavDropdown, MenuItem, Glyphicon } from "react-bootstrap";
 
@@ -17,7 +18,7 @@ export default class NavigationBar extends Component {
       <Navbar collapseOnSelect fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/" >Sakana</Link>
+            <NavLink activeStyle={{ color: "#ff5c5c"}} to="/" >Sakana</NavLink>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

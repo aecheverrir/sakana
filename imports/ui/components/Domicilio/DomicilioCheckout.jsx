@@ -70,7 +70,7 @@ export default class DomicilioCheckout extends React.Component {
                     total += item.price;
                     return (
                       <tr key={item.name + index}>
-                        <td>{item.name}</td>
+                        <td className="CheckoutItem">{item.name}</td>
                         <td>$ {item.price}</td>
                       </tr>
                     )
