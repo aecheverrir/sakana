@@ -66,9 +66,7 @@ export default class DomicilioList extends React.Component {
 
   verifyNext() {
     let tamanio = Math.ceil(this.props.pedidos.length / PEDIDOS_PER_PAGE);
-    console.log("cantidad: " + this.props.pedidos.length);
-    console.log("tamanioo: " + tamanio);
-    return this.state.page === tamanio;
+    return (this.state.page === tamanio) || (tamanio === 0);
   }
 
   handleNextPage() {
@@ -76,8 +74,6 @@ export default class DomicilioList extends React.Component {
     let cambio = this.state.page + 1;
     let tamanio = Math.ceil(this.props.pedidos.length / PEDIDOS_PER_PAGE);
     if(cambio <= tamanio){
-      console.log("cambio en pagina: +1")
-      //this.props.onChangePedidosPage(cambio);
       this.setState({
         page: cambio
       });
@@ -167,7 +163,7 @@ export default class DomicilioList extends React.Component {
 }
 
 DomicilioList.propTypes = {
-  pedidos: PropTypes.array.isRequired,
+  pedidos: PropTypes.array,
   setInfoDomicilioDetail: PropTypes.func,
   onSortPedidos: PropTypes.func,
   onChangePedidosPage: PropTypes.func

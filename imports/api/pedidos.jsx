@@ -43,13 +43,13 @@ if (Meteor.isServer) {
   Meteor.publish("pedidos", function pedidosPublication( currentPage, numberElements ) {
     let limitable = (currentPage * numberElements);
 
-    if (Roles.userIsInRole(this.userId, "admin")){
-      console.log("Administrator userId: " + this.userId)
+    if (Roles.userIsInRole(Meteor.userId(), "admin")){
+      console.log("Administrator userId: " + Meteor.userId())
       return Pedidos.find({});
     }
     else{
-      console.log("Common userId: " + this.userId) 
-      return Pedidos.find({owner:this.userId});   
+      console.log("Common userId: " + Meteor.userId()) 
+      return Pedidos.find({owner:Meteor.userId()});   
     }
     
   });
@@ -67,7 +67,7 @@ Meteor.methods({
       items: Match.Any
     });
 
-    if (!this.userId || (pedidoCollect.owner !== this.userId)) {
+    if (!Meteor.userId() || (pedidoCollect.owner !== Meteor.userId())) {
       throw new Meteor.Error('not-authorized');
     }
     
@@ -79,7 +79,7 @@ Meteor.methods({
   "pedidos.remove"(_id, pedidoState) {
     check(_id, Match.Any);
     check(pedidoState, String);
-    if (!this.userId) {
+    if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
     if (pedidoState !== posibleStates[0]){
@@ -94,7 +94,7 @@ Meteor.methods({
     check(owner, Match.Any);
     check(setPedidoState, String);
 
-    if (!this.userId || !Roles.userIsInRole(this.userId, "admin")) {
+    if (!Meteor.userId() || !Roles.userIsInRole(Meteor.userId(), "admin")) {
       throw new Meteor.Error('not-authorized');
     }
     else if (posibleStates.indexOf(setPedidoState) < 0){

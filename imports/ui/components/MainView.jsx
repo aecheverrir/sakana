@@ -42,7 +42,7 @@ export default class MainView extends Component {
               } />
               <Route path="/checkoutDomicilio" name="checkoutDomicilio" 
                 render={
-                  (props) => <DomicilioCheckout {...props} pedidoActual={this.props.pedidoActual} onCreatePedido={this.props.onCreatePedido} pedidoActual={this.props.pedidoActual} />
+                  (props) => <DomicilioCheckout {...props} pedidoActual={this.props.pedidoActual} onCreatePedido={this.props.onCreatePedido}/>
               } />
 
               <Route path="/login" name="Login" render={(props) => <RegistrationForm {...props} isLogin={true} />} />
