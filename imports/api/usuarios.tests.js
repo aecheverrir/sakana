@@ -1,23 +1,48 @@
 import { Meteor } from 'meteor/meteor';
-import { assert } from 'meteor/practicalmeteor:chai';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
-
+import { Pedidos } from './pedidos.jsx';
+import { assert } from 'meteor/practicalmeteor:chai';
+import { sinon } from 'meteor/practicalmeteor:sinon';
+import { resetDatabase } from "meteor/xolvio:cleaner";
+import { fail } from 'assert';
 
 if (Meteor.isServer) {
     describe('usuarios', function() {
         describe('usuarios.insert', function() {
             
-            let usuarioEjemplo = 
-                    {
-                        name: "Nombre" 
-                    };
+            let userIdentification;
+            const newUser = {
+                email: "email@fake.com",
+                password: "PasswordOne",
+                username: "UsernameOne",
+                profile: {
+                    name: "Name One",
+                    phoneNumber: "phoneNumber"
+                    }
+            };
+
+            beforeEach(function ( ) {
+                resetDatabase();
+                //Crea Usuario Administrador en la Base de Datos
+                userIdentification = Accounts.createUser(newUser);
+                Roles.addUsersToRoles(userIdentification, "admin");
+          
+                sinon.stub(Meteor, "userId");
+                Meteor.userId.returns(userIdentification);
+            });
+          
+            afterEach(function ( ) {
+                resetDatabase();
+                sinon.restore(Meteor, "userId");
+            });
 
 
             it("Should insert new user with it's role", function() {
 
-                Meteor.call("usuarios.insert", usuarioEjemplo);
+                Meteor.call("users.insert",newUser);
                 
+                /*
                 // trys to obtain the new users data
                 let newUser = Accounts.findUser({name:"Nombre"});
                 let newUserRol = Roles.findUser(newUser);
@@ -27,6 +52,7 @@ if (Meteor.isServer) {
 
                 // checks the users rol
                 assert.equal("admin", newUserUserRol);
+                */
 
             }); 
 

@@ -9,7 +9,6 @@ import { Match } from 'meteor/check';
 
 Meteor.methods({
     "users.insert"(newUser) {
-
         let id =  Accounts.createUser(newUser);
         Roles.addUsersToRoles(id, "admin");
     }
