@@ -89,6 +89,6 @@ MenuItem.propTypes = {
 }
 
 MenuItem.propTypes = {
-    item: PropTypes.object.isRequired,
+    item: PropTypes.object
 }
 

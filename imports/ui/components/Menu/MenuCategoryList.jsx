@@ -26,7 +26,6 @@ export default class MenuCategoryList extends React.Component{
                 }
                 
             </div>
-            
         );
     }
 

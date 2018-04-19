@@ -30,6 +30,8 @@ if (Meteor.isServer) {
           
                 sinon.stub(Meteor, "userId");
                 Meteor.userId.returns(userIdentification);
+
+                Meteor.call("users.insert", newUser);
             });
           
             afterEach(function ( ) {
@@ -39,8 +41,6 @@ if (Meteor.isServer) {
 
 
             it("Should insert new user with it's role", function() {
-
-                Meteor.call("users.insert",newUser);
                 
                 /*
                 // trys to obtain the new users data

@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 
 export default class Banner extends React.Component{
@@ -28,3 +29,6 @@ export default class Banner extends React.Component{
         )
     }
 }
+    - THIS COMPONENT IS NO LONGER USED -
+
+*/

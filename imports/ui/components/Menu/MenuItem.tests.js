@@ -6,7 +6,7 @@ import MenuItem from "./MenuItem";
 
 describe("MenuItem", function () {
 
-    const menuItem = {
+    const itemEjemplo = {
         name: "Ojo e' tigre",
         price: 28000,
         description: "Salmon, palmito, atun tempura, aguacate, masago.",
@@ -14,15 +14,36 @@ describe("MenuItem", function () {
         visibility: true
     };
 
+    let menuId = 11;
+
+    let onAddToPedidoActual = ( ) => {
+    }
+    let updateMenu = ( ) => {
+    }
+
     it("Should render", function () {
         const menuItem = shallow(
             <MenuItem
-                item= {menuItem}
-                categoryId={this.props.categoryId}
-                onAddToPedidoActual={this.props.onAddToPedidoActual}
-                updateMenu={this.props.updateMenu}
+                item= {itemEjemplo}
+                categoryId={menuId}
+                onAddToPedidoActual={onAddToPedidoActual}
+                updateMenu={updateMenu}
             />
         );
-        assert.equal(menuItem.find("h3").length, 1);
+        assert(menuItem.find("Grid"));
+        assert(menuItem.find("Row"));
+        assert(menuItem.find("Col"));
+        assert(menuItem.find("form"));
+
+        assert.equal(menuItem.find("Button").length, 0);
+        assert.equal(menuItem.find("FormControl").length, 0);
+        assert.equal(menuItem.find("ControlLabel").length, 0);
+
+        assert(menuItem.find("h3"));
+        assert(menuItem.find("p"));
+        assert(menuItem.find("h4"));
+        assert(menuItem.find("img"));
+
+        
     })
 });
