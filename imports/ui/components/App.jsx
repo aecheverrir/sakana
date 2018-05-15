@@ -173,3 +173,22 @@ export default withRouter(withTracker(() => {
         currentUser: Meteor.user()
     };
 })(App));
+
+/* CODE REVIEW BY: df.cubillos10
+
+TODOS:
+1. En las paginas change password y de mis domicilios,el footer no se despliega al final
+de la pagina, sino más arriba. Es muy importante que arreglen esto.
+2.En /domicilios los enunciados: #ID,Dirección,Fecha,Pedido y Estado aparecen como si
+se les pudiera hacer click al pasar el cursor por encima. Revisar por favor.
+
+Pros:
+1.Buen diseño de la página.
+2.Buen manejo de paginación.
+3.Se ve como una aplicación muy usable,util y funcional.
+4.Login funcional.
+5.Implementaron hotjar
+6.Buen README
+
+Felicitaciones! sigan con el buen trabajo
+*/
